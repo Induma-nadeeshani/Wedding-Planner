@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <style>
+        #employeecart{
+            background-image: url(resourse/image/cart/employee.png);
+            background-size: cover;
+            width: 100%;
+            height: 100%;}
+    </style>
+    <script>
+
+        window.addEventListener("load", initialize);
+
+        function initialize() {
+            console.log(session.getObject("loginuser"));
+
+            if (session.getObject("loginuser") != null) {
+                lblLogUser.innerHTML = session.getObject("loginuser").loginusername;
+                logeduser = httpRequest("/user/getuser/" + session.getObject("loginuser").loginusername, "GET");
+               // profileImage.src = atob();
+                if(logeduser.employeeId.photo != null){
+                    profileImage.src = atob(logeduser.employeeId.photo);
+                }else {
+                    profileImage.src = "/resourse/image/nouser.jpg";
+                }
+            } else
+                window.location.href = "http://localhost:8080/login";
+
+        }
+
+        function btnSignoutMC() {
+
+            /*  var option = window.confirm("\n\nAre your sure to Sign out... ? ");
+              if(option==true) {
+                  httpRequest("/logout","GET");
+              }*/
+            swal({
+                title: "Are you sure to Sign out?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete)=> {
+                if(willDelete) {
+                    swal({
+                        title: "Sign Out Successfully...!",
+                        text: "\n ......Good Bye....\n",
+                        icon: "success",
+                        timer: 3000,
+                        buttons: false,
+                    });
+                    window.location.assign("/logout")
+                }else{}
+            }
+        )
+            ;
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Company Name</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/privilage">privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Product
+                </a>
+                <ul class="collapse list-unstyled" id="productSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/item">Item</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/brand">Brand</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/privilage">privilage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#purchaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Purchase
+                </a>
+                <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/supplier"> Supplier </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/qr"> Quotation Request </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/porder"> Purchase Order </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/gen"> GRN </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/grnreturn"> GRN Return </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/spayment"> Supplier Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Dropdown -->
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Sales
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/custoer"> Customer </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/corder"> Customer Order </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/cinvoice"> Customer Invoice </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/cpayment"> Customer Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Report
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/reportemployee"> Employee Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report2"> Report 2 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report3"> Report 3 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Report 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-image"></i>
+                    Portfolio
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <div class="container-fluid">
+                <div class="float-left">
+                <button type="button" id="sidebarCollapse" class="btn btn-info btn-lg">
+                    <i class="fas fa-align-left"></i>
+                    <span></span>
+                </button>
+
+                <button type="button" class="btn btn-info btn-lg ml-3 rounded-circle">
+                    <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                    <span></span>
+                </button>
+
+
+                </div>
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody">
+
+            <div class="row">
+
+                <div class="col-md-8 mr-5" style="background-color: rgba(255,255,255,0.3); display: flex">
+                    <div class="row ml-3 mt-3 mb-3">
+                        <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/employee')">
+                            <div  id="employeecart" style="width:150px; height:130px"></div>
+                            <div class="card card-footer bg-primary text-white p-0" style="width:150px;height:30px"> <h5>Employee</h5></div>
+                        </div>
+                        <div class="card text-white bg-primary m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <div class="card text-white bg-success m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-success m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-success m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-success m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <div class="card text-white bg-warning m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-warning m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-warning m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-warning m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <div class="card text-white bg-danger m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-danger m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-danger m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-danger m-2" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Primary card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="height: 200px;background-color: rgba(255,255,255,0.3)">
+                    Notification here
+                </div>
+            </div>
+
+        </div>
+        <div id="err" style="margin-top: 200px"></div>
+    </div>
+</div>
+
+
+<div class="overlay"></div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
+</body>
+</html>

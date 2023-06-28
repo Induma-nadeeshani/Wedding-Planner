@@ -1,0 +1,108 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Name ssss</title>
+
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="resourse/fontawesome/css/all.css">
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <link rel="stylesheet" href="resourse/style/login.css">
+
+    <style>
+
+      img {
+          border-radius: 300px;
+      }
+
+    </style>
+
+
+<script>
+
+  /*  $.get( "/login?error=true", function( data ) {
+        $( "#lblErr" ).css("display","block");
+
+    });*/
+
+
+function btnLogin() {
+
+    if(username.value !="" && password.value != ""){
+        loginuser.loginusername = username.value;
+        session.setObject("loginuser",loginuser);
+    }
+
+}
+
+  window.addEventListener("load", initialize);
+
+  //Initializing Functions
+
+  function initialize() {
+      loginuser = new Object();
+      session.setObject("loginuser", new Object());
+
+      var url = window.location.href;
+      if(url=="http://localhost:8080/login?error=true")
+          $( "#lblErr" ).css("display","block");
+  }
+
+</script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" style="margin-top: 120px; margin-left: 150px">
+
+        <div class="col-md-5" style="background-color: #191919; color: white; height: 486px; width: 460px; padding: 40px;">
+            <h1>Title of project</h1>
+
+            <img class="mt-1" src="resourse/image/logo2.jpg"/>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-4">
+
+            <form class="box" action="/login" method="POST" >
+                <h1>Login</h1>
+                <p class="text-muted"> Please enter your username and password!</p>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password"  placeholder="Password">
+                <div align="center" id="lblErr" style="display: none">
+                    <p style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
+                </div>
+                <a class="forgot text-muted" href="#">Forgot password?</a>
+                <input type="submit" name="" value="Login" id="btnlogin" onclick="btnLogin()">
+                <div class="col-md-12">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

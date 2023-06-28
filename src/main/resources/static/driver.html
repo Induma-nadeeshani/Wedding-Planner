@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BIT Final Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+
+    <style>
+
+        .table-container {
+            width: auto;
+            overflow-x: scroll !important;
+        }
+
+        .tooltip-inner {
+            background-color: #f00;
+        }
+    </style>
+
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+    <script src="driver.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <link href="resourse/select2/css/select2.min.css" rel="stylesheet"/>
+    <script src="resourse/select2/js/select2.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h1><b>Golden Crown</b></h1>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- Dropdown -->
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="Employee">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="User">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="Privilage">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-edit"></i>
+                    Reservation
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="Customer">
+                        <a href="http://localhost:8080/customer">Customer </a>
+                    </li>
+                    <li id="Reservation">
+                        <a href="http://localhost:8080/reservation">Reservation</a>
+                    </li>
+                    <li id="CustomerPayment">
+                        <a href="http://localhost:8080/cuspayment"> Customer Payment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#serviceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-tags"></i>
+                    Service
+                </a>
+                <ul class="collapse list-unstyled" id="serviceSubmenu">
+                    <li id="Service">
+                        <a href="http://localhost:8080/service">Service</a>
+                    </li>
+                    <li id="Packages">
+                        <a href="http://localhost:8080/package">Packages</a>
+                    </li>
+                    <li id="ServiceProvider">
+                        <a href="http://localhost:8080/serviceprovider">Service Provider</a>
+                    </li>
+                    <li id="ProviderPackage">
+                        <a href="http://localhost:8080/providerpackage">Provider Package</a>
+                    </li>
+                    <li id="SpPayment">
+                        <a href="http://localhost:8080/sppayment"> Service Provider Payments </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#vehicleSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-car"></i>
+                    Vehicle
+                </a>
+                <ul class="collapse list-unstyled" id="vehicleSubmenu">
+                    <li id="Vehicle">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li id="Driver">
+                        <a href="http://localhost:8080/driver">Driver</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#allocationSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-bookmark">  </i>
+                    Allocation
+                </a>
+                <ul class="collapse list-unstyled" id="allocationSubmenu">
+                    <li id="VehicleAllocation">
+                        <a href="http://localhost:8080/vehicleallocation"> Vehicle Allocation </a>
+                    </li>
+                    <li id="SupervisorAllocation">
+                        <a href="http://localhost:8080/supervisorallocation"> Supervisor Allocation </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-chart-line"></i>
+                    Reports
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li id="module">
+                        <a href="http://localhost:8080/report1"> Module 1 </a>
+                    </li>
+                    <li id="mod">
+                        <a href="http://localhost:8080/report2"> Module 2 </a>
+                    </li>
+                    <li id="">
+                        <a href="http://localhost:8080/report3"> Module 3 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Module 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href= "http://localhost:8080/schedule">
+                    <i class="fas fa-image"></i>
+                    Schedule
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div style="position: static"  class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-lg" style="background-color: #DCB6BA;">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+                    <button type="button" class="btn btn-lg ml-3 rounded-circle" style="background-color: #DCB6BA;">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                        <span></span>
+                    </button>
+
+                    <img id="logo" src="/resourse/image/logo.png" class="text-center align-items-center"
+                         style="width: 200px; height: 100px; margin-bottom: -13px; margin-top: -19px; margin-left: 450px">
+                    <a href="index"></a>
+
+
+                </div>
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <a class="text-white float-right mr-3" id="loggedIn" href="#"> Logged As :
+                        <p class="" id="lblLoggedAsUser" style="font-weight: bolder">987</p>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <button type="button" class="btn btn-lg rounded-circle mr-1" style="background-color:#DCB6BA;">
+                            <a href="#"> <i class="fa fa-bell"></i></a>
+                            <span></span>
+                        </button>
+                        <ul class="navbar-nav">
+                        <span class="badge badge-pill ml-1" style="background-color: #DCB6BA;">
+                            <li class="nav-item dropdown" style="margin-left: -35px">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i
+                                            class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </span>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody p-0">
+
+            <div class="row row-content" id="ui">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" style="background-color:#e0a800 ">
+                            <h3><b>Driver Management</b></h3>
+                        </div>
+
+                        <div class="card-body" style="background-color: beige";>
+
+                            <div class="row row-content" id="form">
+                                <form class="col-md-12" id="customerform" onsubmit="return false">
+
+
+                                    <div class="row row-content">
+                                        <div class="col-md-6 pull-left">
+                                            <button type="button" id="btnHideForm"
+                                                    class="btn btn-outline-secondary ml-2"
+                                                    style="width:8%" onclick="viewForm()"><i
+                                                    class='fa fa-angle-double-down'></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6 pull-right text-right">
+                                            <p><span style="color:red; font-size:24px"><b>*</b></span> Required</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="" style="border:2px solid goldenrod;">
+
+                                    <div class="row row-content mt-3">
+                                        <div class="col-md-4">
+                                            <div class="form-inline">
+                                                <div class="form-group">
+                                                    <label class="" for="txtNumber"> <b>Driver Number : <span
+                                                            style="color:red; font-size:24px">*</span></b></label>
+                                                    <input style="margin-left: 15px" type="text" id="txtNumber"
+                                                           placeholder="Enter Number Here"
+                                                           class="form-control"
+                                                           onclick=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-inline">
+                                                <div class="form-group ">
+                                                    <label class="" for="cmbRegBy"> <b>Registred By : <span
+                                                            style="color:red; font-size:24px">*</span></b></label>
+                                                    <select style="margin-left: 15px" id="cmbRegBy" class="form-control"
+                                                            placeholder="Enter Employee"
+                                                            required disabled></select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-inline">
+                                                <div class="form-group">
+                                                    <label class="" for="dteRegDate"> <b>Registred Date : <span
+                                                            style="color:red; font-size:24px">*</span></b></label>
+                                                    <input style="margin-left: 15px" type="text" id="dteRegDate"
+                                                           class="form-control" required disabled/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row row-content ml-2 mt-4">
+                                        <div class="col-md-6">
+                                            <p>If the driver is already exist as an employee,Select Here.</p>
+                                        </div>
+                                    </div>
+                                    <div class="row row-content">
+                                        <div class="col-md-1">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="" for="cmbEmpNumber"><b>Employee Name/NIC : </b></label>
+                                                <select id="cmbEmpNumber" class="form-control js-example-basic-single"
+                                                        onchange="comboBoxBinder(cmbEmpNumber,'','driver','dstatusId','olddriver')"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row row-content mt-3">
+                                        <div class="col-md-6">
+                                            <div class="card border-warning">
+                                                <div class="card-header text-dark"
+                                                     style="background-color: #e0a800";><b>Driver Details</b></div>
+                                                <div class="card-body">
+
+
+                                                    <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  data-placement="bottom"style="color: red"
+                                                                  title="Driver Name" class="input-group-text">
+                                                            <i class="fa fa-user fa-1x"></i></span>
+                                                        <input type="text" id="txtDrvName" aria-placeholder=""
+                                                               placeholder="Driver Name"
+                                                               class="form-control" required
+                                                               onkeyup="textFieldBinder(txtDrvName,'^([a-zA-Z]+|[a-zA-Z]+\\s{1}[a-zA-Z]{1,}|[a-zA-Z]+\\s{1}[a-zA-Z]{3,}\\s{1}[a-zA-Z]{1,})$','driver','dname','olddriver')"/>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                        <span data-toggle="tooltip"
+                                                              data-placement="bottom" style="color: red"
+                                                              title="Driver NIC" class="input-group-text"><i
+                                                                class="fa fa-id-badge fa-1x"></i></span>
+                                                                <input type="text" id="txtNIC"
+                                                                       placeholder="Driver NIC"
+                                                                       class="form-control" data-toggle="tooltip"
+                                                                       data-placement="bottom"
+                                                                       title="9 digit plus vVxX or 12 digits" required
+                                                                       onkeyup="textFieldBinder(txtNIC,'^(([0-9]{9}[vVxX])|([0-9]{12}))$','driver','nic','olddriver')"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span class="input-group-text">
+                                                                    <i data-toggle="tooltip"
+                                                                       data-placement="bottom" style="color: red"
+                                                                       title="Driver Mobile" class="fas fa-mobile-alt fa-1x"></i></span>
+                                                                <input type="text" id="txtDrvMobile"
+                                                                       placeholder="Driver Mobile"
+                                                                       class="form-control" required
+                                                                       onkeyup="textFieldBinder(txtDrvMobile,'^0\\d{9}$','driver','dmobile','olddriver')"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                        <span data-toggle="tooltip"
+                                                              data-placement="bottom" style="color: red"
+                                                              title="Driver's License Number" class="input-group-text">
+                                                        <i class="fas fa-id-card fa-1x"></i></span>
+                                                                <input type="text" id="txtLicenseNo"
+                                                                       placeholder="Driver's License Number"
+                                                                       class="form-control" required
+                                                                       onkeyup="textFieldBinder(txtLicenseNo,'','driver','licenseno','olddriver')"/>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span class="input-group-text">
+                                                                    <i data-toggle="tooltip" data-placement="bottom"
+                                                                       title="Years of Experience" style="color: red"
+                                                                       class="fas fa-calendar-plus fa-1x"></i></span>
+                                                                <input type="text" id="txtExpYears"
+                                                                       placeholder="Years of Experience"
+                                                                       class="form-control"
+                                                                       onkeyup="textFieldBinder(txtExpYears,'','driver','expyears','olddriver')"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                        <span data-toggle="tooltip"
+                                                              data-placement="bottom" style="color: red"
+                                                              title="Driver Status" class="input-group-text">
+                                                        <i class="fas fa-tags fa-1x"></i></span>
+                                                                <select id="cmbDrvStatus" class="form-control" required
+                                                                        onchange="comboBoxBinder(cmbDrvStatus,'','driver','dstatusId','olddriver')"></select>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span class="input-group-text">
+                                                                    <i data-toggle="tooltip" data-placement="bottom"
+                                                                       title="Charge Per Day(Rs.)"
+                                                                       class="fas fa-coins fa-1x"></i></span>
+                                                                <input type="text" id="txtPerDay"
+                                                                       placeholder="Charge Per Day(Rs.)"
+                                                                       class="form-control"
+                                                                       onkeyup="textFieldBinder(txtPerDay,'^0\\d{9}$','driver','chargeperday','olddriver')"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip" data-placement="bottom"
+                                                                          title="Description"
+                                                                          class="input-group-text" id="span">
+                                                                    <i class="fa fa-align-justify fa-1x"></i></span>
+                                                                <textarea id="txtDescription"
+                                                                          placeholder="Description"
+                                                                          class="form-control" style="height: 80px;"
+                                                                          onkeyup="textFieldBinder(txtDescription,'^([\\w\\/\\-,\\s]{2,})$','driver','description','olddriver')"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card border-warning">
+                                                <div class="card-header text-dark"
+                                                     style="background-color: #e0a800";><b>Add Photo</b></div>
+                                                <div class="card-body">
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="flePhoto"><b>Photo :</b> </label><br>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-content">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-5">
+                                                                <input class="" type="file" name="" id="flePhoto"
+                                                                       onchange="validateImage(flePhoto,'employee','photo')"
+                                                                       data-toggle="tooltip" data-placement="bottom"
+                                                                       title=".jpg,.jpeg,.png,.bmp are accepted">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div style="margin-top: 30px" class="col-md-9 text-right">
+                                                            <button type="button" id="btnRemove"
+                                                                    class="btn btn-outline-secondary "
+                                                                    style="width:35%" onclick=" removeFileValue()">
+                                                                Remove Photo
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                        <div class="row row-content mt-2 mb-3">
+                                            <div class="col-md-12 text-right">
+                                                <button type="button" id="btnClear" class="btn btn-outline-secondary ml-2"
+                                                        style="width:10%"><i class='fa fa-eraser'></i>
+                                                    Clear
+                                                </button>
+                                                <button type="button" id="btnUpdate" class="btn btn-outline-warning ml-2"
+                                                        style="width:10%"><i class='fa fa-edit'></i>
+                                                    Update
+                                                </button>
+                                                <button type="submit" id="btnAdd" class="btn btn-outline-success ml-2"
+                                                        style="width:10%"><i
+                                                        class='fa fa-save'></i> Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <div class="row row-content mt-4" id="driverview">
+
+                                <div class="col-md-12 ">
+                                    <div class="row">
+                                        <div class=" container-fluid">
+                                            <button type="button" id="btnViewForm"
+                                                    class="btn btn-outline-secondary ml-2"
+                                                    onclick="viewForm()">View Form
+                                            </button>
+                                            <input type="button" class="btn btn-outline-primary" value="Print Table"
+                                                   id="btnPrintTable" onclick="btnPrintTableMC()"/>
+                                            <div class="float-right">
+                                                <input style="font-family: 'Helvetica', FontAwesome,sans-serif;"
+                                                       placeholder='&#xf002; Search '
+                                                       class="form-control" type="text" onblur="this.focus()"
+                                                       id="txtSearchName"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr/>
+                                <div class="row row-content">
+                                    <div class="table-responsive" id="tableParent" class="table-container ml-2">
+
+                                        <script>
+
+                                            function getNameColumn(ob) {
+                                                return ob.callingname + "(" + ob.number + ")";
+                                            }
+
+                                            var metadata = [
+                                                {
+                                                    name: 'Driver Name',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'dname'
+                                                },
+                                                {name: 'NIC', search: false, datatype: 'text', property: 'nic'},
+                                                {name: 'Mobile', search: false, datatype: 'text', property: 'dmobile'},
+                                                {
+                                                    name: 'License Number',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'licenseno'
+                                                },
+                                                {
+                                                    name: 'Charge Per Day',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'chargeperday'
+                                                },
+                                                {
+                                                    name: 'Status',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'dstatusId.name'
+                                                }
+                                            ];
+                                            table("tableParent", "tblDriver", metadata, true);
+
+                                        </script>
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div style="display: inline-block ; float: left">
+                                        <select class="form-control input" id="cmbPageSize"
+                                                style="width: 80px;">
+                                            <option selected value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="500">500</option>
+                                            <option value="1000">1000</option>
+                                        </select>
+                                        <script>
+                                            cmbPageSize.onchange = function chnagePageSize() {
+                                                activepage = 1;
+                                                btnSearchMC();
+                                            };
+                                        </script>
+                                    </div>
+                                    <div style="display: inline-block; margin-left: 10px;">
+                                        <ul id="pagination" class="pagination"></ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="card-footer">
+                    <div id="err">
+                        <h3>Error Log</h3>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="border: 3px solid; border-color: goldenrod; outline-color: goldenrod">
+                            <div class="modal-header" style="background-color: goldenrod">
+                                <h3 class="modal-title" id="exampleModalLongTitle">Customer
+                                    Details</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body" style=" background-color: beige">
+                                <table id="printformtable" class="mt-5">
+                                    <tbody>
+<!--                                    <tr>-->
+<!--                                         <td><img id="tdphoto" width="100px" height="100px"></td>-->
+<!--                                    </tr>-->
+                                    <tr>
+                                        <td>Driver Number :</td>
+                                        <td id="x">
+                                            <input type="text" id="tdnum"
+                                                   style="border: 0px solid; border-color: white"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Driver Name :</td>
+                                        <td id="tddname"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Driver Status :</td>
+                                        <td id="tddstatus"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NIC :</td>
+                                        <td id="tdnic"></td>
+                                    </tr>
+                                    <tr>
+                                    <tr>
+                                        <td>Mobile Number :</td>
+                                        <td id="tddmobile"></td>
+                                    </tr>
+                                        <td>Driver's License Number :</td>
+                                        <td id="tdlicense"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Years of Experience :</td>
+                                        <td id="tdcregion"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Charge per Day :</td>
+                                        <td id="tdperday"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description :</td>
+                                        <td id="tddescript"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="modal-footer" style="background-color: beige">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="printRow()">Print</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay"></div>
+</body>
+</html>
+
+</body>
+</html>

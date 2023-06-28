@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+
+    <script src="employee.js"></script>
+
+    <style>
+
+        .table-container{
+            width: auto;
+            overflow-x: scroll !important;
+        }
+
+        .tooltip-inner {background-color: #f00;}
+    </style>
+
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <script>
+
+        window.addEventListener("load", initialize);
+
+        function initialize() {
+            console.log(session.getObject("loginuser"));
+
+            if (session.getObject("loginuser") != null) {
+                lblLogUser.innerHTML = session.getObject("loginuser").loginusername;
+                logeduser = httpRequest("/user/getuser/" + session.getObject("loginuser").loginusername, "GET");
+                // profileImage.src = atob();
+                if(logeduser.employeeId.photo != null){
+                    profileImage.src = atob(logeduser.employeeId.photo);
+                }else {
+                    profileImage.src = "/resourse/image/nouser.jpg";
+                }
+            } else
+                window.location.href = "http://localhost:8080/login";
+
+        }
+
+        function btnSignoutMC() {
+
+            /*  var option = window.confirm("\n\nAre your sure to Sign out... ? ");
+              if(option==true) {
+                  httpRequest("/logout","GET");
+              }*/
+            swal({
+                title: "Are you sure to Sign out?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete)=> {
+                if(willDelete) {
+                    swal({
+                        title: "Sign Out Successfully...!",
+                        text: "\n ......Good Bye....\n",
+                        icon: "success",
+                        timer: 3000,
+                        buttons: false,
+                    });
+                    window.location.assign("/logout")
+                }else{}
+            }
+        )
+            ;
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Company Name</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/privilage">privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Product
+                </a>
+                <ul class="collapse list-unstyled" id="productSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/item">Item</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/brand">Brand</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/privilage">privilage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#purchaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Purchase
+                </a>
+                <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/supplier"> Supplier </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/qr"> Quotation Request </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/porder"> Purchase Order </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/gen"> GRN </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/grnreturn"> GRN Return </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/spayment"> Supplier Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Dropdown -->
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Sales
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/custoer"> Customer </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/corder"> Customer Order </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/cinvoice"> Customer Invoice </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/cpayment"> Customer Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Report
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/report1"> Report 1 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report2"> Report 2 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report3"> Report 3 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Report 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-image"></i>
+                    Portfolio
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info btn-lg">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+                    <button type="button" class="btn btn-info btn-lg ml-3 rounded-circle">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                        <span></span>
+                    </button>
+
+
+                </div>
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+    <!-- Content -->
+        <div class="container-fluid dashbordbody p-0">
+
+            <div class="row" id="ui">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <h3>Employee Management</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-5" id="form">
+                                    <form class="" id="employeeform" onsubmit="return false">
+
+
+                                        <div class="row">
+                                            <div class="col-md-12 pull-right text-right"><p><span style="color:red; font-size:24px"><b>*</b></span> Required</p> </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="txtNumber"> <b>Employee Number : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <input type="text" id="txtNumber" placeholder="Enter Number Here"
+                                                           class="form-control" required disabled />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="txtCallingname"> <b>Employee Calling Name : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <input type="text" id="txtCallingname" placeholder="eg :- Johne"
+                                                           class="form-control" required
+                                                           data-toggle="tooltip" data-placement="bottom" title="eg :- Johne"
+                                                           onkeyup="textFieldBinder(txtCallingname,'^([A-Z][a-z]+)$','employee','callingname','oldemployee')" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="" for="txtFullname"> <b>Employee Full Name : <span style="color:red; font-size:24px">*</span></b></label>
+                                            <input type="text" id="txtFullname" placeholder="Enter Full Name Here"
+                                                   class="form-control" required
+                                                   onkeyup="textFieldBinder(txtFullname,'^([a-zA-Z]+|[a-zA-Z]+\\s{1}[a-zA-Z]{1,}|[a-zA-Z]+\\s{1}[a-zA-Z]{3,}\\s{1}[a-zA-Z]{1,})$','employee','fullname','oldemployee')" />
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="" for="txtNIC"> <b>Employee NIC : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <input type="text" id="txtNIC" placeholder="9 digite plus vVxX or 12 digits" class="form-control" required
+                                                           data-toggle="tooltip" data-placement="bottom" title="9 digite plus vVxX or 12 digits"
+                                                           onkeyup="nicFieldBinder(txtNIC,'^(([0-9]{9}[vVxX])|([0-9]{12}))$','','','')" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="" for="cmbGender"><b>Gender : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <select id="cmbGender" class="form-control" disabled required
+                                                            onchange="comboBoxBinder(cmbGender,'','employee','genderId','oldemployee')"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="" for="dteDOBirth"> <b>Birth Date : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <input type="date" id="dteDOBirth" class="form-control" disabled required
+                                                           onkeyup="textFieldBinder(dteDOBirth,'','employee','dobirth','oldemployee')"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="txtAddress"> <b>Employee Address : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <textarea id="txtAddress" placeholder="Enter Address Here" class="form-control" required
+                                                              style="height: 120px;"
+                                                              onkeyup="textFieldBinder(txtAddress,'^([\\w\\/\\-,\\s]{2,})$','employee','address','oldemployee')"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group" id="print-form">
+                                                    <script>
+                                                        // (parentid, photofeildId,labletext,lablesize,type, maxsize,datarequerd,object, property , oldobject )
+                                                        fileChooser('print-form', 'flePhoto', 'Photo', 4, ['.jpg', '.png'], 5, true, 'employee', 'photo', 'oldemployee');
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="txtMobile"> <b>Employee Mobile-Number : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <input type="text" id="txtMobile" placeholder="Enter Mobile-Number Here"
+                                                           class="form-control" required
+                                                           onkeyup="textFieldBinder(txtMobile,'^0\\d{9}$','employee','mobile','oldemployee')" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="txtLand"> <b>Employee Land-Number :<span style="visibility: hidden; font-size:24px">*</span> </b></label>
+                                                    <input type="text" id="txtLand" placeholder="Enter Land-Number Here (optional)"
+                                                           class="form-control"
+                                                           onkeyup="textFieldBinder(txtLand,'^0\\d{9}$','employee','land','oldemployee')"  />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="cmbCivilstatus"><b>Civilstatus : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <select id="cmbCivilstatus" class="form-control" required
+                                                            onchange="comboBoxBinder(cmbCivilstatus,'','employee','civilstatusId','oldemployee')"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="cmbDesignation"><b> Employee Designation : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <select id="cmbDesignation" class="form-control" required
+                                                            onchange="comboBoxBinder(cmbDesignation,'','employee','designationId','oldemployee')"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label class="" for="txtDescription"> <b>Employee Description : </b></label>
+                                            <textarea id="txtDescription" placeholder="Enter Description Here (optional)"
+                                                      class="form-control"
+                                                      onkeyup="textFieldBinder(txtDescription,'^.*$','employee','description','oldemployee')"></textarea>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="dteDOAssignment"> <b>Employee Assignment Date : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <input type="date" id="dteDOAssignment" class="form-control" required
+                                                           onkeyup="textFieldBinder(dteDOAssignment,'','employee','doassignment','oldemployee')" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="" for="cmbEmployeestatus"><b>Employee Status : <span style="color:red; font-size:24px">*</span></b></label>
+                                                    <select id="cmbEmployeestatus" class="form-control" required
+                                                            onchange="comboBoxBinder(cmbEmployeestatus,'','employee','employeestatusId','oldemployee')"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="text-right">
+                                            <input class="btn btn-primary btn-sm" type="button" id="btnClear" value="Clear"
+                                                   style="width: 25%" />
+                                            <input class="btn btn-warning btn-sm" type="submit" id="btnUpdate"
+                                                   value="Update" style="width: 25%" />
+                                            <input class="btn btn-success btn-sm"  id="btnAdd" value="Add"
+                                                   style="width: 25%" type="submit"/>
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+
+                                <div class="col-md-7" id="employeeview">
+                                    <div class="container-fluid">
+
+                                        <input type="button" class="btn btn-primary" value="Print Table" id="btnPrintTable"  onclick="btnPrintTableMC()"/>
+                                        <div class="float-right">
+                                            <input placeholder="Search" class="form-control" type="text" id="txtSearchName" />
+                                        </div>
+
+                                    </div>
+
+
+                                    <hr />
+                                    <div class="table-responsive" id="tableParent" class="table-container ml-2">
+
+                                        <script>
+
+                                            function getNameColumn(ob) {
+                                                return ob.callingname + "(" + ob.number + ")";
+                                            }
+
+                                            var metadata = [
+                                                { name: 'Number', search: false, datatype: 'text', property: 'number' },
+                                                { name: 'Name', search: false, datatype: 'text', property: 'callingname' },
+                                                { name: 'Mobile', search: false, datatype: 'text', property: 'mobile' },
+                                                { name: 'Designation', search: false, datatype: 'text', property: 'designationId.name' },
+                                                { name: 'Status', search: false, datatype: 'text', property: 'employeestatusId.name' }
+                                            ];
+                                            table("tableParent", "tblEmployee", metadata, true);
+
+                                        </script>
+
+
+                                    </div>
+
+                                    <div>
+                                        <div style="display: inline-block ; float: left">
+                                            <select class="form-control input" id="cmbPageSize"
+                                                    style="width: 80px;">
+                                                <option selected value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="30">30</option>
+                                                <option value="500">500</option>
+                                                <option value="1000">1000</option>
+                                            </select>
+                                            <script>
+                                                cmbPageSize.onchange = function chnagePageSize() {
+                                                    activepage=1;
+                                                    btnSearchMC();
+                                                };
+                                            </script>
+                                        </div>
+                                        <div style="display: inline-block; margin-left: 10px;">
+                                            <ul id="pagination" class="pagination"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <div id="err">
+                                <h3>Error Log</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+    </div>
+
+    </div>
+</div>
+    <table id="printformtable" class="mt-5" style="display: none">
+        <tbody>
+            <tr>
+                <td>Employee Number : </td>
+                <td id="x"> <input type="text" id="tdnum" style="border: 0px solid; border-color: white"></td>
+            </tr>
+            <tr>
+                <td>Employee Full Name : </td>
+                <td id="tdfname"></td>
+            </tr>
+            <tr>
+                <td>Employee Calling Name : </td>
+                <td id="tdcname">  </td>
+            </tr>
+            <tr>
+                <td>Employee Nic : </td>
+                <td id="tdnic">  </td>
+            </tr>
+            <tr>
+                <td>Employee Gender : </td>
+                <td id="tdgender">  </td>
+            </tr>
+            <tr>
+                <td>Employee DOB : </td>
+                <td id="tddob"> </td>
+            </tr>
+            <tr>
+                <td>Employee Civil Status : </td>
+                <td id="tdcvstatus">  </td>
+            </tr>
+            <tr>
+                <td>Employee Address : </td>
+                <td id="tdaddress">  </td>
+            </tr>
+            <tr>
+                <td>Employee Photo : </td>
+                <td > <img id="tdphoto" width="100px" height="100px"> </td>
+            </tr>
+            <tr>
+                <td>Employee Mobile Nmber : </td>
+                <td id="tdmobile">  </td>
+            </tr>
+            <tr>
+                <td>Employee Land Number : </td>
+                <td id="tdland">  </td>
+            </tr>
+            <tr>
+                <td>Employee Designation : </td>
+                <td id="tddesg">  </td>
+            </tr>
+            <tr>
+                <td>Employee Assign Date : </td>
+                <td id="tdasdate">  </td>
+            </tr>
+            <tr>
+                <td>Employee Status : </td>
+                <td id="tdestatus">  </td>
+            </tr>
+            <tr>
+                <td>Employee Description : </td>
+                <td id="tddesc">  </td>
+            </tr>
+        </tbody>
+    </table>
+<div class="overlay"></div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+</body>
+</html>
+
+</body>
+</html>

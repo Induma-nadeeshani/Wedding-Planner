@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BIT Final Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+
+    <style>
+
+        .table-container {
+            width: auto;
+            overflow-x: scroll !important;
+        }
+
+        .tooltip-inner {
+            background-color: #f00;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,.nav-tabs .nav-link.active{
+            color: white;
+            background-color: #D7A3A4;
+            border-color:#cbd3da #cbd3da #fff;
+        }
+
+         .select2-selection{
+             width: 99% !important;
+             height: 38px !important;
+             padding-top: 4px;
+
+         }
+        .select2-selection__arrow{
+            margin-top: 6px !important;
+            margin-left: 10px !important;
+        }
+
+        .select2-selection__rendered{
+            padding-right: 5px !important;
+        }
+    </style>
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+    <script src="customer.js"></script>
+
+
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <link href="resourse/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="resourse/select2/js/select2.min.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h1><b>Golden Crown</b></h1>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- Dropdown -->
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="Employee">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="User">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="Privilage">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-edit"></i>
+                    Reservation
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="Customer">
+                        <a href="http://localhost:8080/customer">Customer </a>
+                    </li>
+                    <li id="Reservation">
+                        <a href="http://localhost:8080/reservation">Reservation</a>
+                    </li>
+                    <li id="CustomerPayment">
+                        <a href="http://localhost:8080/cuspayment"> Customer Payment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#serviceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-tags"></i>
+                    Service
+                </a>
+                <ul class="collapse list-unstyled" id="serviceSubmenu">
+                    <li id="Service">
+                        <a href="http://localhost:8080/service">Service</a>
+                    </li>
+                    <li id="Packages">
+                        <a href="http://localhost:8080/package">Packages</a>
+                    </li>
+                    <li id="ServiceProvider">
+                        <a href="http://localhost:8080/serviceprovider">Service Provider</a>
+                    </li>
+                    <li id="ProviderPackage">
+                        <a href="http://localhost:8080/providerpackage">Provider Package</a>
+                    </li>
+                    <li id="SpPayment">
+                        <a href="http://localhost:8080/sppayment"> Service Provider Payments </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#vehicleSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-car"></i>
+                    Vehicle
+                </a>
+                <ul class="collapse list-unstyled" id="vehicleSubmenu">
+                    <li id="Vehicle">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li id="Driver">
+                        <a href="http://localhost:8080/driver">Driver</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#allocationSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-bookmark">  </i>
+                    Allocation
+                </a>
+                <ul class="collapse list-unstyled" id="allocationSubmenu">
+                    <li id="VehicleAllocation">
+                        <a href="http://localhost:8080/vehicleallocation"> Vehicle Allocation </a>
+                    </li>
+                    <li id="SupervisorAllocation">
+                        <a href="http://localhost:8080/supervisorallocation"> Supervisor Allocation </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-chart-line"></i>
+                    Reports
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li id="module">
+                        <a href="http://localhost:8080/suppervisorallocationcountreport"> Supervisor Report </a>
+                    </li>
+                    <li id="mod">
+                        <a href="http://localhost:8080/paymentmonthlyreport"> Payment Monthly Report </a>
+                    </li>
+                    <li id="">
+                        <a href="http://localhost:8080/reservationreport"> Reservation Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Module 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href= "http://localhost:8080/schedule">
+                    <i class="fas fa-image"></i>
+                    Schedule
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div style="position: static"  class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-lg" style="background-color: #DCB6BA;">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+                    <button type="button" class="btn btn-lg ml-3 rounded-circle" style="background-color: #DCB6BA;">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                        <span></span>
+                    </button>
+
+                    <img id="logo" src="/resourse/image/logo.png" class="text-center align-items-center"
+                         style="width: 200px; height: 100px; margin-bottom: -13px; margin-top: -19px; margin-left: 450px">
+                    <a href="index"></a>
+
+
+                </div>
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <a class="text-white float-right mr-3" id="loggedIn" href="#"> Logged As :
+                        <p class="" id="lblLoggedAsUser" style="font-weight: bolder">987</p>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <button type="button" class="btn btn-lg rounded-circle mr-1" style="background-color:#DCB6BA;">
+                            <a href="#"> <i class="fa fa-bell"></i></a>
+                            <span></span>
+                        </button>
+                        <ul class="navbar-nav">
+                        <span class="badge badge-pill ml-1" style="background-color: #DCB6BA;">
+                            <li class="nav-item dropdown" style="margin-left: -35px">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i
+                                            class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </span>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody p-0">
+
+            <div class="row row-content" id="ui">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" style="background-color:#D7A3A4 ">
+                            <h3><b>Customer Management</b></h3>
+                        </div>
+
+
+                        <div class="card-body" style="background-color: beige;">
+
+                            <div class="row row-content" id="form">
+                                <form class="col-md-12" id="customerform" onsubmit="return false">
+
+
+                                    <div class="row">
+                                        <div class="col-md-6 pull-left">
+                                            <button type="button" id="btnHideForm"
+                                                    class="btn btn-outline-secondary ml-2"
+                                                    style="width:10%" onclick="viewForm()"><i
+                                                    class='fa fa-angle-double-down'></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6 pull-right text-right">
+                                            <p style="color: red"> Required</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="" style="border:2px solid goldenrod;">
+                                    <div class="row row-content mt-3">
+
+                                        <div class="col-md-4">
+                                            <div class="input-group form-group">
+                                                    <span data-toggle="tooltip"
+                                                          data-placement="bottom" title="Customer Number" style="color: red"
+                                                          class="input-group-text">
+                                                        <i class="fa fa-edit fa-1x"></i></span>
+                                                    <input type="text" id="txtNumber"
+                                                           placeholder="Customer Number"
+                                                           class="form-control" required disabled/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="input-group form-group ">
+                                                    <span data-toggle="tooltip"
+                                                          data-placement="bottom" title="Registered By" style="color: red"
+                                                          class="input-group-text">
+                                                        <i class="fa fa-user fa-1x"></i></span>
+                                                    <select id="cmbRegBy" class="form-control"
+                                                            placeholder="Select Employee"
+                                                            required disabled></select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="input-group form-group">
+                                                   <span data-toggle="tooltip"
+                                                         data-placement="bottom" title="Registered Date" style="color: red"
+                                                         class="input-group-text">
+                                                        <i class="fa fa-calendar fa-1x"></i></span>
+                                                   <input type="text" id="dteRegDate"
+                                                           placeholder="Enter Date Here"
+                                                           class="form-control" required disabled/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row row-content mt-3">
+                                        <div class=" col-md-6">
+                                            <div class="card border">
+                                                <div class="card-header text-dark"
+                                                     style="background-color: #D7A3A4";><b>Customer Details</b></div>
+
+                                                <div class="card-body">
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom" style="color: red"
+                                                                      title="Customer Type" class="input-group-text">
+                                                                    <i class="fa fa-users fa-1x"></i></span>
+                                                                <select id="cmbCusType" class="form-control" required
+                                                                        onchange="comboBoxBinder(cmbCusType,'','customer','ctypeId','oldcustomer')"></select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom" style="color: red"
+                                                                      title="Customer Status" class="input-group-text">
+                                                                    <i class="fas fa-tags fa-1x"></i></span>
+                                                                <select id="cmbCusStatus" class="form-control" required
+                                                                        onchange="comboBoxBinder(cmbCusStatus,'','customer','cstatusId','oldcustomer')"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  title="Customer Name" style="color: red"
+                                                                  data-placement="bottom" class="input-group-text">
+                                                            <i id="iconName" class="fa fa-user fa-1x"></i></span>
+                                                        <input type="text" id="txtCusName" placeholder="Customer Name"
+                                                               class="form-control" required
+                                                               onkeyup="textFieldBinder(txtCusName,'^([a-zA-Z]+|[a-zA-Z]+\\s{1}[a-zA-Z]{1,}|[a-zA-Z]+\\s{1}[a-zA-Z]{3,}\\s{1}[a-zA-Z]{1,})$','customer','cname','oldcustomer')"/>
+                                                    </div>
+
+                                                    <div class="row">
+<!--                                                        <div class="col-md-6">-->
+<!--                                                            <div class="input-group form-group form-inline">-->
+<!--                                                            <span data-toggle="tooltip" data-placement="bottom"-->
+<!--                                                                  title="Customer Region" class="input-group-text">-->
+<!--                                                        <i class="fa fa-globe fa-1x"></i> </span>-->
+<!--                                                                &lt;!&ndash;<select id="cmbCusRegion"-->
+<!--                                                                        class="form-control js-example-basic-single" required-->
+<!--                                                                        onchange="comboBoxBinder(cmbCusRegion,'','customer','cregionId','oldcustomer')"></select>&ndash;&gt;-->
+
+<!--                                                                <select id="cmbCusRegion" class="form-control js-example-basic-single"-->
+<!--                                                                        required    data-toggle="tooltip"-->
+<!--                                                                        data-placement="bottom" title="Select region"-->
+<!--                                                                        onchange="comboBox2Binder(cmbCusRegion,'','customer','cregionId','oldcustomer')"></select>-->
+
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom" style="color: red"
+                                                                      title="Customer Mobile" class="input-group-text">
+                                                                <i class="fa fa-mobile-alt fa-1x"></i></span>
+                                                                <input type="text" id="txtCusMobile" style=" width: 180px"
+                                                                       placeholder="Customer Mobile" class="form-control" required
+                                                                       onkeyup="textFieldBinder(txtCusMobile,'^07[0-9]{8}$','customer','cmobile','oldcustomer')"/>
+                                                                <!--   <input type="text" id="txtCusMobileCode" placeholder="+94"-->
+                                                                <!--   class="form-control" required style="width: 105px" readonly hidden-->
+                                                                <!--    onkeyup="textFieldBinder(txtCusMobileCode,'','customer','cregionId.code','oldcustomer')"/>-->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6" >
+                                                            <div class="input-group form-group">
+                                                        <span data-toggle="tooltip" data-placement="bottom" style="color: red" id="icnCusNIC"
+                                                              title="NIC Number" class="input-group-text"><i class="fa fa-id-badge fa-1x"></i></span>
+                                                                <input type="text" id="txtCusNIC"
+                                                                       placeholder="NIC/Passport" class="form-control" data-toggle="tooltip"
+                                                                       data-placement="bottom" title="9 digit plus vVxX or 12 digits" required
+                                                                       onkeyup="textFieldBinder(txtCusNIC,'^(([0-9]{9}[vVxX])|([0-9]{12}))$','customer','nic','oldcustomer')"/>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+<!--                                                    <div class="row">-->
+<!--                                                        <div class="col-md-3">-->
+<!--                                                        </div>-->
+
+<!--                                                        <div class="col-md-7" style="margin-left: -10px">-->
+<!--                                                            <div class="input-group form-group">-->
+<!--                                                        <span data-toggle="tooltip" data-placement="bottom" style="color: red" id="icnCusNIC"-->
+<!--                                                              title="NIC/Passport" class="input-group-text"><i class="fa fa-id-badge fa-1x"></i></span>-->
+<!--                                                                <input type="text" id="txtCusNIC"-->
+<!--                                                                       placeholder="NIC/Passport" class="form-control" data-toggle="tooltip"-->
+<!--                                                                       data-placement="bottom" title="9 digit plus vVxX or 12 digits" required-->
+<!--                                                                       onkeyup="textFieldBinder(txtCusNIC,'^(([0-9]{9}[vVxX])|([0-9]{12}))$','customer','nic','oldcustomer')"/>-->
+<!--                                                            </div>-->
+
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+
+
+                                                    <div class="input-group form-group">
+                                                        <span data-toggle="tooltip"
+                                                              data-placement="bottom"
+                                                              title="Customer Email" class="input-group-text">
+                                                        <i class="fa fa-envelope fa-1x"></i></span>
+                                                        <input type="email" id="txtCusEmail"
+                                                               placeholder="Customer Email"
+                                                               class="form-control"
+                                                               onkeyup="textFieldBinder(txtCusEmail,'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$','customer','cemail','oldcustomer')"/>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  data-placement="bottom" style="color: red"
+                                                                  title="Customer Address" class="input-group-text">
+                                                                <i class="fa fa-map-marker-alt fa-1x"></i></span>
+                                                                <textarea id="txtAddress" placeholder="Customer Address"
+                                                                          class="form-control" required
+                                                                          style="height: 90px;"
+                                                                          onkeyup="textFieldBinder(txtAddress,'','customer','caddress','oldcustomer')"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip" data-placement="bottom"
+                                                                          title="Description"
+                                                                          class="input-group-text" id="span">
+                                                                    <i class="fa fa-align-justify fa-1x"></i></span>
+                                                                <textarea id="txtDescription"
+                                                                          placeholder="Description(Optional)"
+                                                                          class="form-control" style="height: 90px;"
+                                                                          onkeyup="textFieldBinder(txtDescription,'^([\\w\\/\\-,\\s]{2,})$','customer','description','oldcustomer')"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="card border">
+                                                <div class="card-header text-dark"
+                                                     style="background-color: #D7A3A4";><b>Contact Person Details</b></div>
+
+
+                                                <div class="card-body">
+
+                                                    <div class="input-group form-group">
+                                                        <span data-toggle="tooltip" data-placement="bottom"
+                                                              title="Contact Person Name" class="input-group-text">
+                                                            <i id="icnCpName" class="fa fa-user fa-1x"></i></span>
+                                                        <input type="text" id="txtCpName"
+                                                               placeholder="Contact Person Name" class="form-control"
+                                                               onkeyup="textFieldBinder(txtCpName,'^([a-zA-Z]+|[a-zA-Z]+\\s{1}[a-zA-Z]{1,}|[a-zA-Z]+\\s{1}[a-zA-Z]{3,}\\s{1}[a-zA-Z]{1,})$','customer','cpname','oldcustomer')"/>
+                                                    </div>
+
+                                                    <div class="input-group form-group">
+                                                        <span data-toggle="tooltip"
+                                                              data-placement="bottom"
+                                                              title="Contact Person Email" class="input-group-text">
+                                                            <i id="icnCpEmail" class="fa fa-envelope fa-1x"></i></span>
+                                                        <input type="email" id="txtCpEmail"
+                                                               placeholder="Contact Person Email" class="form-control"
+                                                               onkeyup="textFieldBinder(txtCpEmail,'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$','customer','cpemail','oldcustomer')"/>
+                                                    </div>
+
+                                                    <div class="input-group form-group">
+                                                        <span data-toggle="tooltip" id="icnNIC"
+                                                              data-placement="bottom" style="color: red"
+                                                              title="NIC/Passport" class="input-group-text"><i
+                                                                class="fa fa-id-badge fa-1x"></i></span>
+                                                        <input type="text" id="txtNIC"
+                                                               placeholder="NIC/Passport"
+                                                               class="form-control" data-toggle="tooltip"
+                                                               data-placement="bottom"
+                                                               title="9 digit plus vVxX or 12 digits" required
+                                                               onkeyup="textFieldBinder(txtNIC,'^(([0-9]{9}[vVxX])|([0-9]{12}))$','customer','nic','oldcustomer')"/>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  data-placement="bottom"
+                                                                  title="Contact Person Mobile"
+                                                                  class="input-group-text">
+                                                                <i id="icnCpMob" class="fas fa-mobile-alt fa-1x"></i></span>
+                                                                <input type="text" id="txtCpMobile"
+                                                                       placeholder="Mobile Number" class="form-control"
+                                                                       onkeyup="textFieldBinder(txtCpMobile,'^0\\d{9}$','customer','cpmobile','oldcustomer')"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom"
+                                                                      title="Contact Person Land"
+                                                                      class="input-group-text">
+                                                                    <i class="fa fa-phone fa-1x"></i></span>
+                                                                <input type="text" id="txtCpLand"
+                                                                       placeholder="Land Number" class="form-control"
+                                                                       onkeyup="textFieldBinder(txtCpLand,'^0\\d{9}$','customer','cpland','oldcustomer')"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                        </div>
+
+                                                        <div class="col-md-8">
+                                                            <div class="input-group form-group">
+                                                        <span data-toggle="tooltip"
+                                                              data-placement="bottom"
+                                                              title="Contact Person Address" class="input-group-text">
+                                                            <i id="icnCpAddress" class="fa fa-map-marker-alt fa-1x"></i></span>
+                                                                <textarea id="txtCpAddress"
+                                                                          placeholder="Contact Person Address"
+                                                                          class="form-control" required
+                                                                          style="height: 90px;"
+                                                                          onkeyup="textFieldBinder(txtCpAddress,'^([\\w\\/\\-,\\s]{2,})$','customer','cpaddress','oldcustomer')"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+
+
+                                    <div class="row row-content mt-2 mb-3">
+                                        <div class="col-md-12 text-right">
+                                            <button type="button" id="btnClear" class="btn btn-outline-secondary ml-2"
+                                                    style="width:10%"><i class='fa fa-eraser'></i>
+                                                Clear
+                                            </button>
+                                            <button type="button" id="btnUpdate" class="btn btn-outline-warning ml-2"
+                                                    style="width:10%"><i class='fa fa-edit'></i>
+                                                Update
+                                            </button>
+                                            <button type="submit" id="btnAdd" class="btn btn-outline-success ml-2"
+                                                    style="width:10%"><i class='fa fa-save'></i> Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+                        <div class="row row-content mt-4" id="customerview">
+
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class=" container-fluid">
+                                            <button type="button" id="btnViewForm"
+                                                    class="btn btn-outline-secondary ml-2"
+                                                    onclick="viewForm()">View Form
+                                            </button>
+                                            <input type="button" class="btn btn-outline-primary" value="Print Table"
+                                                   id="btnPrintTable" onclick="btnPrintTableMC()"/>
+                                            <div class="float-right">
+                                                <input style="font-family: 'Helvetica', FontAwesome,sans-serif;"
+                                                       placeholder='&#xf002; Search '
+                                                       class="form-control" type="text" onblur="this.focus()"
+                                                       id="txtSearchName"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr/>
+
+                                <div class="row row-content">
+                                    <div class="table-responsive" id="tableParent" class="table-container ">
+                                        <script>
+                                            function getNameColumn(ob) {
+                                                return ob.callingname + "(" + ob.number + ")";
+                                            }
+
+                                            var metadata = [
+                                                {
+                                                    name: 'Reg Number',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'regno'
+                                                },
+                                                {
+                                                    name: 'Customer Type',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'ctypeId.name'
+                                                },
+                                                {
+                                                    name: 'Customer Name',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'cname'
+                                                },
+                                                {name: 'Mobile', search: false, datatype: 'text', property: 'cmobile'},
+                                                {name: 'NIC', search: false, datatype: 'text', property: 'nic'},
+                                                {
+                                                    name: 'Status',
+                                                    search: false,
+                                                    datatype: 'text',
+                                                    property: 'cstatusId.name'
+                                                }
+                                            ];
+                                            table("tableParent", "tblCustomer", metadata, true);
+
+                                        </script>
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div style="display: inline-block ; float: left">
+                                        <select class="form-control input" id="cmbPageSize"
+                                                style="width: 80px;">
+                                            <option selected value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="500">500</option>
+                                            <option value="1000">1000</option>
+                                        </select>
+                                        <script>
+                                            cmbPageSize.onchange = function chnagePageSize() {
+                                                activepage = 1;
+                                                btnSearchMC();
+                                            };
+                                        </script>
+                                    </div>
+                                    <div style="display: inline-block; margin-left: 10px;">
+                                        <ul id="pagination" class="pagination"></ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+                    <div id="err">
+                        <h3>Error Log</h3>
+                    </div>
+                </div>
+
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="border: 3px solid; border-color: silver; outline-color: silver">
+                            <div class="modal-header" style="background-color: #D7A3A4">
+                                <h3 class="modal-title" id="exampleModalLongTitle">Customer
+                                    Details</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+
+                            <div class="modal-body" style=" background-color: beige">
+                                <table id="printformtable" class="mt-5">
+                                    <tbody>
+                                    <tr>
+                                        <td>Customer Number :</td>
+                                        <td id="x">
+                                            <input type="text" id="tdnum"
+                                                   style="border: 0px solid; border-color: white"></td>
+                                    </tr>
+                                    <tr>
+                                    <td>Customer Type :</td>
+                                        <td id="tdctype"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Status :</td>
+                                        <td id="tdcstatus"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name :</td>
+                                        <td id="tdcname"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email :</td>
+                                        <td id="tdcemail"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Region :</td>
+                                        <td id="tdcregion"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile Number :</td>
+                                        <td id="tdcmobile"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Address :</td>
+                                        <td id="tdcaddress"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description :</td>
+                                        <td id="tddescript"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Person Name :</td>
+                                        <td id="tdcpname"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Person Email :</td>
+                                        <td id="tdcpemail"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NIC :</td>
+                                        <td id="tdnic"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Person Mobile</td>
+                                        <td id="tdcpmobile"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Person Land No.</td>
+                                        <td id="tdcpland"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Person Address.</td>
+                                        <td id="cpaddress"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="modal-footer" style="background-color: beige">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="printRow()">Print</button>
+                            </div>
+
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+</html>

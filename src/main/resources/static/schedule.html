@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BIT Final Project</title>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+    <script src="schedule.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <style>
+        #employeecart{
+            background-image: url(resourse/image/cart/employee.png);
+            background-size: cover;
+            width: 100%;
+            height: 100%;}
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h1><b>Golden Crown</b></h1>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- Dropdown -->
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="Employee">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="User">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="Privilage">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-edit"></i>
+                    Reservation
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="Customer">
+                        <a href="http://localhost:8080/customer">Customer </a>
+                    </li>
+                    <li id="Reservation">
+                        <a href="http://localhost:8080/reservation">Reservation</a>
+                    </li>
+                    <li id="CustomerPayment">
+                        <a href="http://localhost:8080/cuspayment"> Customer Payment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#serviceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-tags"></i>
+                    Service
+                </a>
+                <ul class="collapse list-unstyled" id="serviceSubmenu">
+                    <li id="Service">
+                        <a href="http://localhost:8080/service">Service</a>
+                    </li>
+                    <li id="Packages">
+                        <a href="http://localhost:8080/package">Packages</a>
+                    </li>
+                    <li id="ServiceProvider">
+                        <a href="http://localhost:8080/serviceprovider">Service Provider</a>
+                    </li>
+                    <li id="ProviderPackage">
+                        <a href="http://localhost:8080/providerpackage">Provider Package</a>
+                    </li>
+                    <li id="SpPayment">
+                        <a href="http://localhost:8080/sppayment"> Service Provider Payments </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#vehicleSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-car"></i>
+                    Vehicle
+                </a>
+                <ul class="collapse list-unstyled" id="vehicleSubmenu">
+                    <li id="Vehicle">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li id="Driver">
+                        <a href="http://localhost:8080/driver">Driver</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#allocationSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-bookmark">  </i>
+                    Allocation
+                </a>
+                <ul class="collapse list-unstyled" id="allocationSubmenu">
+                    <li id="VehicleAllocation">
+                        <a href="http://localhost:8080/vehicleallocation"> Vehicle Allocation </a>
+                    </li>
+                    <li id="SupervisorAllocation">
+                        <a href="http://localhost:8080/supervisorallocation"> Supervisor Allocation </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-chart-line"></i>
+                    Reports
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li id="module">
+                        <a href="http://localhost:8080/suppervisorallocationcountreport"> Supervisor Report </a>
+                    </li>
+                    <li id="mod">
+                        <a href="http://localhost:8080/paymentmonthlyreport"> Payment Monthly Report </a>
+                    </li>
+                    <li id="">
+                        <a href="http://localhost:8080/reservationreport"> Reservation Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Module 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href= "http://localhost:8080/schedule">
+                    <i class="fas fa-image"></i>
+                    Schedule
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div style="position: static"  class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-lg" style="background-color: #DCB6BA;">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+                    <button type="button" class="btn btn-lg ml-3 rounded-circle" style="background-color: #DCB6BA;">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                        <span></span>
+                    </button>
+
+                    <img id="logo" src="/resourse/image/logo.png" class="text-center align-items-center"
+                         style="width: 200px; height: 100px; margin-bottom: -13px; margin-top: -19px; margin-left: 450px">
+                    <a href="index"></a>
+
+
+                </div>
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <a class="text-white float-right mr-3" id="loggedIn" href="#"> Logged As :
+                        <p class="" id="lblLoggedAsUser" style="font-weight: bolder">987</p>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <button type="button" class="btn btn-lg rounded-circle mr-1" style="background-color:#DCB6BA;">
+                            <a href="#"> <i class="fa fa-bell"></i></a>
+                            <span></span>
+                        </button>
+                        <ul class="navbar-nav">
+                        <span class="badge badge-pill ml-1" style="background-color: #DCB6BA;">
+                            <li class="nav-item dropdown" style="margin-left: -35px">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i
+                                            class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </span>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody">
+            <div class="row row-content" id="ui">
+                <div class="col-md-1">
+                </div>
+
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header" style="background-color:#D7A3A4 ">
+                            <h3><b>Event Schedule</b></h3>
+                        </div>
+
+
+                        <div class="card-body" style="background-color: beige;">
+
+                            <div class="row row-content mt-5" >
+                                <div class="col-md-1">
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="input-group form-group ">
+                                            <span data-toggle="tooltip" data-placement="bottom" title="Generated By" style="color: red"
+                                                  class="input-group-text">
+                                                  <i class="fa fa-user fa-1x"></i></span>
+                                        <select id="cmbRegBy" class="form-control" placeholder="Generated Employee"
+                                                required disabled></select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group form-group">
+                                            <span data-toggle="tooltip"
+                                                  data-placement="bottom" title="Generated Date" style="color: red"
+                                                  class="input-group-text"><i class="fa fa-calendar fa-1x"></i></span>
+                                        <input type="text" id="dteRegDate"
+                                               placeholder="Enter Date Here"
+                                               class="form-control" required disabled/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row-content" id="form">
+                                <div class="col-md-1">
+                                </div>
+
+                                <form class="col-md-10" id="scheduleform" onsubmit="return false">
+
+                                    <div class="row row-content mt-5">
+                                        <p>Select a Reservation to generate schedule</p>
+                                    </div>
+
+                                    <div class="row row-content ml-4">
+                                        <div class="col-md-6">
+                                            <label class="" for="cmbRes"> <b>Reservation Number:</b> </label>
+                                            <div class="input-group form-group ml-5 mr-2">
+                                                <div class="input-group" style="margin-left: 5px">
+                                                <span data-toggle="tooltip" data-placement="bottom" title="Reservation"
+                                            style="color: red" class="input-group-text"><i class="fa fa-edit fa-1x"></i></span>
+                                                    <select id="cmbRes" class="form-control" required></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content ml-3">
+                                        <div class="col-md-7">
+                                        </div>
+
+                                        <div class="col-md-5 pull-right mb-5">
+                                            <button type="button" id="btnGenerate"  data-toggle="modal" onclick="loadModalData()"
+                                                    data-target="#exampleModalLong"
+                                                    class="btn btn-outline-success ml-2" style="width: 140px" >
+                                                <i class='fa fa-spinner fa-spin' ></i> Generate Schedule
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div id="err">
+                                <h3>Error Log</h3>
+                            </div>
+                        </div>
+
+                        <div  class="modal fade" data-backdrop="static" id="exampleModalLong" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header"  style="background-color: #D7A3A4">
+                                        <button style="color: ghostwhite;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div id="EventModal" class="modal-body">
+                                        <div class="container-fluid" id="resPrintView">
+                                            <div class="row"></div>
+                                            <div class="row" style="margin-top: 5px;">
+                                                <div class="col-md-12">
+
+                                                    <div class="text-center" id="eventSchedule">
+                                                        <h2 class="font-weight-bold">Event Schedule</h2>
+                                                        <h3 class="font-weight-bold text-center">Golder Crown Wedding Planners</h3>
+                                                    </div>
+
+                                                    <div class="row row-content mt-5 text-center">
+                                                        <div class="col-md-12 text-center form-inline">
+                                                            <div class="col-md-6">
+                                                                <table class="table">
+                                                                    <tr>
+                                                                        <td class="text-left font-weight-bold">Reservation No :</td>
+                                                                        <td id="tdRno" class="text-left"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-left font-weight-bold">Generated Date :</td>
+                                                                        <td id="tdDate" class="text-left"> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-left font-weight-bold">Added By :</td>
+                                                                        <td id="tdAddBy" class="text-left"></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <table class="table">
+                                                                    <tr>
+                                                                        <td class="text-left font-weight-bold">Customer Name :</td>
+                                                                        <td id="tdcname" class="text-left"> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-left font-weight-bold">Contact No :</td>
+                                                                        <td id="tdcmobile" class="text-left"> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-left font-weight-bold">E-mail :</td>
+                                                                        <td id="tdcmail" class="text-left"> </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row row-content text-center mt-4" id="diveventdetails">
+
+
+                                                    </div>
+                                                    <div class="row row-content text-center mt-4">
+                                                        <table class="table">
+                                                            <tr>
+                                                                <td class="text-left font-weight-bold">Supervisor :</td>
+                                                                <td id="tdsup" class="text-left"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left font-weight-bold">Contact No :</td>
+                                                                <td id="tdsmobile" class="text-left"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-left font-weight-bold">E-mail :</td>
+                                                                <td id="tdsemail" class="text-left"> </td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-md-1">
+                                                    <p style="color: black;" class="font-weight-bold">Note :</p>
+                                                </div>
+                                                <div class="col-md-11">
+                                                    <p style="color: black; font-size: small;">
+                                                        Any Amendment which makes TWO DAYS PRIOR to the event for the above mentioned event dates or times will only be considered.<br>
+                                                        The advance payment is NON-REFUNDABLE.<br>
+                                                        Advance payment or full payment should be made BEFORE the event to confirm the reservation.<br>
+                                                        If you paid an advance payment, you should pay the balance payment to complete the reservation on or before the event date.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i></i> Close
+                                        </button>
+                                        <button id="btnPrint" type="button" class="btn btn-primary" onclick="btnPrintTableMC()"><i class="fa fa-print"></i>
+                                            Print
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+    <div class="overlay"></div>
+
+</body>
+
+<script>
+    function btnPrintTableMC(schedule) {
+
+        var newwindow = window.open();
+        formattab = EventModal.outerHTML;
+
+        newwindow.document.write("" +
+            "<html>" +
+            "<head><style type='text/css'>.google-visualization-table-th {text-align: left;} .modifybutton{display: none} .isort{display: none}</style>" +
+            "<link rel='stylesheet' href='../plugin/bootstrap/css/bootstrap.min.css'/></head>" +
+            "<body>" +
+            "<div>" + formattab + "</div>" +
+            "</body>" +
+            "</html>");
+        setTimeout(function () {
+            newwindow.print();
+            newwindow.close();
+        }, 100);
+    }
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resourse/bootstrap/css/font-awesome.min.css">
+    <script src="../resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../resourse/jquery/popper.min.js"></script>
+    <script src="../resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../resourse/script/common.bitproject.js"></script>
+    <script src="../ui/test.js"></script>
+</head>
+<body>
+
+<div id="err"></div>
+
+<div class="container-fluid m-5" >
+   <div class="row">
+       <div class="col-md-4" id="lblShowBtn"></div>
+       <div class="col-md-6" id="showPKDetails"></div>
+   </div>
+</div>
+
+<script>
+
+    photograpers = httpRequest("../serviceprovider/listbyphotographer", "GET");
+
+    for(index in photograpers){
+        var button = document.createElement('button');
+        button.style.width = "200px";
+        button.classList.add('btn');
+        button.classList.add('bg-info');
+        button.value = photograpers[index].id;
+        button.innerHTML = photograpers[index].name;
+        button.onclick = function () {
+           loadPackage(this.value);
+        }
+        var para = document.createElement('p');
+        lblShowBtn.appendChild(button);
+        lblShowBtn.appendChild(para);
+    }
+
+function loadPackage(spid) {
+    showPKDetails.innerHTML = "";
+   var sppalages = new Array();
+    sppalages = httpRequest("../providerpackage/listbyprovider?providerid="+spid, "GET");
+    for(index in sppalages){
+        var textarea = document.createElement('textarea');
+        textarea.style.width = "500px";
+        textarea.rows = "8";
+        textarea.classList.add('form-control');
+        var spkfeaturesList = sppalages[index]['featuresList'];
+        var spkfeaturesListname = " ";
+        var i=1;
+        for(ind in spkfeaturesList){
+            spkfeaturesListname = spkfeaturesListname + "Featuser " + i + " : " + spkfeaturesList[ind].name + "\n";
+            i++;
+        }
+        textarea.innerHTML = "PK Name : "+sppalages[index].name +"\nPK Price : "+ sppalages[index].price +"\nFeatuers : "+spkfeaturesListname;
+        var para = document.createElement('p');
+        showPKDetails.appendChild(textarea);
+        showPKDetails.appendChild(para);
+    }
+
+}
+
+</script>
+
+</body>
+</html>

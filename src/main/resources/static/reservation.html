@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BIT Final Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+
+    <style>
+
+        .table-container {
+            width: auto;
+            overflow-x: scroll !important;
+        }
+
+        .tooltip-inner {
+            background-color: #f00;
+        }
+
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: white;
+            background-color: #D7A3A4;
+            border-color: #cbd3da #cbd3da #fff;
+        }
+    </style>
+
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+    <script src="reservation.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap4-toggle.min.css">
+    <script src="resourse/bootstrap/js/bootstrap4-toggle.min.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h1><b>Golden Crown</b></h1>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- Dropdown -->
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="Employee">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="User">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="Privilage">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-edit"></i>
+                    Reservation
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="Customer">
+                        <a href="http://localhost:8080/customer">Customer </a>
+                    </li>
+                    <li id="Reservation">
+                        <a href="http://localhost:8080/reservation">Reservation</a>
+                    </li>
+                    <li id="CustomerPayment">
+                        <a href="http://localhost:8080/cuspayment"> Customer Payment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#serviceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-tags"></i>
+                    Service
+                </a>
+                <ul class="collapse list-unstyled" id="serviceSubmenu">
+                    <li id="Service">
+                        <a href="http://localhost:8080/service">Service</a>
+                    </li>
+                    <li id="Packages">
+                        <a href="http://localhost:8080/package">Packages</a>
+                    </li>
+                    <li id="ServiceProvider">
+                        <a href="http://localhost:8080/serviceprovider">Service Provider</a>
+                    </li>
+                    <li id="ProviderPackage">
+                        <a href="http://localhost:8080/providerpackage">Provider Package</a>
+                    </li>
+                    <li id="SpPayment">
+                        <a href="http://localhost:8080/sppayment"> Service Provider Payments </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#vehicleSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-car"></i>
+                    Vehicle
+                </a>
+                <ul class="collapse list-unstyled" id="vehicleSubmenu">
+                    <li id="Vehicle">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li id="Driver">
+                        <a href="http://localhost:8080/driver">Driver</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#allocationSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-bookmark">  </i>
+                    Allocation
+                </a>
+                <ul class="collapse list-unstyled" id="allocationSubmenu">
+                    <li id="VehicleAllocation">
+                        <a href="http://localhost:8080/vehicleallocation"> Vehicle Allocation </a>
+                    </li>
+                    <li id="SupervisorAllocation">
+                        <a href="http://localhost:8080/supervisorallocation"> Supervisor Allocation </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-chart-line"></i>
+                    Reports
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li id="module">
+                        <a href="http://localhost:8080/suppervisorallocationcountreport"> Supervisor Report </a>
+                    </li>
+                    <li id="mod">
+                        <a href="http://localhost:8080/paymentmonthlyreport"> Payment Monthly Report </a>
+                    </li>
+                    <li id="">
+                        <a href="http://localhost:8080/reservationreport"> Reservation Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Module 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href= "http://localhost:8080/schedule">
+                    <i class="fas fa-image"></i>
+                    Schedule
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div style="position: static"  class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-lg" style="background-color: #DCB6BA;">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+                    <button type="button" class="btn btn-lg ml-3 rounded-circle" style="background-color: #DCB6BA;">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                        <span></span>
+                    </button>
+
+                    <img id="logo" src="/resourse/image/logo.png" class="text-center align-items-center"
+                         style="width: 200px; height: 100px; margin-bottom: -13px; margin-top: -19px; margin-left: 450px">
+                    <a href="index"></a>
+
+
+                </div>
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <a class="text-white float-right mr-3" id="loggedIn" href="#"> Logged As :
+                        <p class="" id="lblLoggedAsUser" style="font-weight: bolder">987</p>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <button type="button" class="btn btn-lg rounded-circle mr-1" style="background-color:#DCB6BA;">
+                            <a href="#"> <i class="fa fa-bell"></i></a>
+                            <span></span>
+                        </button>
+                        <ul class="navbar-nav">
+                        <span class="badge badge-pill ml-1" style="background-color: #DCB6BA;">
+                            <li class="nav-item dropdown" style="margin-left: -35px">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i
+                                            class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </span>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody p-0">
+
+            <div class="row row-content" id="ui">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" style="background-color: #D7A3A4">
+                            <h3><b>Reservation</b></h3>
+                        </div>
+
+
+                        <div class="card-body" style="background-color: beige" ;>
+
+                            <div class="row row-content" >
+                                <form class="col-md-12" id="reservationform" onsubmit="return false">
+
+                                    <div class="row">
+                                        <div class="col-md-12 pull-right text-right">
+                                            <p><span style="color:red; font-size:24px"></span>
+                                                <span style="color:red;">Required</span></p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <!-- Tab Headings -->
+                                            <ul class="nav nav-tabs mb-2">
+                                                <li class="nav-item"  onclick="changeTab('divevent')">
+                                                    <a class="nav-link active font-weight-bold" id="liformevent" href="#">Event</a>
+                                                </li>
+                                                <li class="nav-item" onclick="changeTab('divservice')">
+                                                    <a class="nav-link  font-weight-bold"  id="liformservice" href="#">Service</a>
+                                                </li>
+                                                <li class="nav-item" onclick="changeTab('divreservation')">
+                                                    <a class="nav-link  font-weight-bold"  id="liformreservation" href="#">Reservation</a>
+                                                </li>
+                                                <li class="nav-item" onclick="changeTab('divtable')">
+                                                    <a class="nav-link  font-weight-bold"  id="litableview" href="#"> Table</a>
+                                                </li>
+
+                                            </ul>
+
+
+                                            <div class="" style="border:2px solid goldenrod;">
+
+                                                <!-- Tab Contents -->
+
+                                                    <!--Tab 1-->
+                                                <div class="row" id="divevent">
+
+                                                    <!-- Event Details-->
+                                                    <div class="col-md-12" id="event">
+                                                        <div class="row row-content mt-5">
+
+                                                            <div class="col-md-4">
+                                                                <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom"
+                                                                          title="Reservation Number" style="color: red"
+                                                                          class="input-group-text">
+                                                                        <i class="fa fa-edit fa-1x"></i></span>
+                                                                    <input type="text" id="txtResNo"
+                                                                           placeholder="Reservation Number"
+                                                                           class="form-control" required disabled/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom"
+                                                                          title="Customer Number" style="color: red"
+                                                                          class="input-group-text">
+                                                                    <i class="fa fa-user fa-1x"></i></span>
+                                                                    <select id="cmbCustomer" class="form-control"
+                                                                            required
+                                                                            onchange="comboBoxBinder(cmbCustomer,'','reservation','customerId','oldreservation')"></select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  data-placement="bottom"
+                                                                  title="Package" class="input-group-text">
+                                                                <i class="fa fa-gift fa-1x"></i></span>
+                                                                    <select id="cmbPkg" class="form-control"
+                                                                            onchange="textFieldBinder(cmbPkg,'','reservation','packageId','oldreservation')"></select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row row-content mt-5">
+
+                                                            <div class="col-md-3">
+
+                                                                <div class="row mt-6">
+
+                                                                    <div class="col-md-12">
+                                                                        <label class="" for="cmbEvent"> <b>Event
+                                                                            : </b></label>
+                                                                    </div>
+
+                                                                    <div class="row ml-4">
+                                                                        <div class="col-md-12 ">
+                                                                            <div class="input-group form-group">
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom" style="color: red"
+                                                                              title="Event" class="input-group-text">
+                                                                            <i class="fa fa-bookmark fa-1x"></i></span>
+                                                                                <select id="cmbEvent"
+                                                                                        class="form-control"
+                                                                                        style="width: 175px"
+                                                                                        onchange="comboBoxBinder(cmbEvent,'','eventreservation','eventId','oldeventreservation')"></select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <input type="text" hidden
+                                                                           id="txtEvent" class="form-control"
+                                                                           placeholder="Enter the Event"
+                                                                           onkeyup=""/>
+                                                                </div>
+
+                                                                <div class="row mt-1">
+                                                                    <div class="col-md-11">
+
+                                                                        <div class="form-group"
+                                                                             style="margin-left: 1px">
+                                                                            <label class="" for="chkMode"> <b>Event
+                                                                                Mode : </b></label>
+                                                                            <div class="row ml-4">
+                                                                                <input type="checkbox" id="chkMode"
+                                                                                       data-toggle="toggle" data-on="<i class='fa fa-sun'></i> Day"
+                                                                                       data-off="<i class='fa fa-moon'></i> Night" data-onstyle="warning"
+                                                                                       data-offstyle="dark" data-width="130" data-height="38" checked required
+                                                                                       onchange="CheckBoxBinder(chkMode, '', 'eventreservation','eventmode', 'oldeventreservation', false)">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row mt-1">
+                                                                    <div class="col-md-12">
+                                                                        <label class="" for="dteDate"> <b>Event Date
+                                                                            : </b></label>
+                                                                    </div>
+
+                                                                    <div class="row ml-4">
+                                                                        <div class="col-md-12">
+                                                                            <div class="input-group form-group">
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom" style="color: red"
+                                                                              title="Event Date"
+                                                                              class="input-group-text">
+                                                                        <i class="fas fa-calendar fa-1x"></i></span>
+                                                                                <input type="date" id="dteDate"
+                                                                                       class="form-control"
+                                                                                       style="width: 175px"
+                                                                                       onchange="textFieldBinder(dteDate,'','eventreservation','eventdate','oldeventreservation')"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row mt-1">
+                                                                    <div class="col-md-12">
+                                                                        <label class="" for="timStart"> <b>Start
+                                                                            Time : </b></label>
+                                                                    </div>
+
+                                                                    <div class="row ml-4">
+                                                                        <div class="col-md-12">
+                                                                            <div class="input-group form-group">
+
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom"
+                                                                              title="Starting Time" style="color: red"
+                                                                              class="input-group-text"><i
+                                                                                class="fa fa-clock fa-1x"></i></span>
+                                                                                <input type="time" id="timStart"
+                                                                                       placeholder="Starting Time"
+                                                                                       class="form-control"
+                                                                                       style="width: 175px"
+                                                                                       onchange="textFieldBinder(timStart,'','eventreservation','starttime','oldeventreservation')"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mt-1">
+                                                                    <div class="col-md-12">
+                                                                        <label class="" for="timEnd"> <b>End Time
+                                                                            : </b></label>
+                                                                    </div>
+
+                                                                    <div class="row ml-4">
+                                                                        <div class="col-md-12">
+                                                                            <div class="input-group form-group">
+
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom"
+                                                                              title="Ending Time" style="color: red"
+                                                                              class="input-group-text"><i
+                                                                                class="fa fa-clock fa-1x"></i></span>
+                                                                                <input type="time" id="timEnd"
+                                                                                       placeholder="Ending Time"
+                                                                                       class="form-control"
+                                                                                       style="width: 175px"
+                                                                                       onkeyup="textFieldBinder(timEnd,'','eventreservation','endtime','oldeventreservation')"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                                <div class="row mt-1">
+                                                                    <div class="col-md-12">
+                                                                        <label class="" for="timEnd"> <b>Event
+                                                                            Location : </b></label>
+                                                                    </div>
+
+                                                                    <div class="row ml-4">
+                                                                        <div class="col-md-12">
+                                                                            <div class="input-group form-group">
+
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom"
+                                                                              title="Event Location" style="color: red"
+                                                                              class="input-group-text">
+                                                                            <i class="fa fa-map-marker-alt fa-1x"></i></span>
+                                                                                <textarea id="eventLoc"
+                                                                                          placeholder="Enter the Main Location of the Event"
+                                                                                          class="form-control"
+                                                                                          style="width: 175px"
+                                                                                          rows="4" required
+                                                                                          onkeyup="textFieldBinder(eventLoc,'','eventreservation','location','oldeventreservation')"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- Event Activities-->
+                                                            <div class="col-md-9">
+                                                                <div class="card border">
+                                                                    <div class="card-header text-dark"
+                                                                         style="background-color:#D7A3A4" ;><b>Event
+                                                                        Activities</b>
+                                                                    </div>
+
+                                                                    <div class="card-body">
+
+                                                                        <div class="row">
+
+                                                                            <!-- Activity Row -->
+                                                                            <div class="col-md-12">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-3">
+                                                                                        <label class=""
+                                                                                               for="cmbActivity"> <b>Activity
+                                                                                            : </b></label>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-md-10 ml-4">
+                                                                                    <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      style="color: red"
+                                                                                      title="Activity Name"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fas fa-calendar fa-1x"></i></span>
+                                                                                        <select id="cmbActivity"
+                                                                                                class="form-control"
+                                                                                                style="width: 175px"
+                                                                                                onchange="comboBoxBinder(cmbActivity,'','eventactivity','activityId','oldeventactivity')"></select>
+                                                                                    </div>
+
+                                                                                    <input type="text" hidden
+                                                                                           id="txtActivity" class="form-control"
+                                                                                           placeholder="Enter the Activity"
+                                                                                           onkeyup=""/>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <!-- Location -->
+                                                                            <div class="col-md-12 mt-2" >
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <label class=""
+                                                                                               for="txtActLocFrom">
+                                                                                            <b>Location
+                                                                                                : </b></label>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row ml-5">
+
+                                                                                    <div class="col-md-2">
+                                                                                        <p>From</p>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="input-group form-group"
+                                                                                             ;>
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      style="color: red"
+                                                                                      title="Start Location"
+                                                                                      class="input-group-text"><i
+                                                                                        class="fas fa-map-marker-alt fa-1x"></i></span>
+                                                                                            <textarea
+                                                                                                    id="txtActLocFrom"
+                                                                                                    rows="4"
+                                                                                                    class="form-control"
+                                                                                                    placeholder="Start Location"
+                                                                                                    onkeyup="textFieldBinder(txtActLocFrom,'','eventactivity','startlocation','oldeventactivity')"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-2">
+                                                                                        <p>To</p>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      style="color: red"
+                                                                                      title="End Location"
+                                                                                      class="input-group-text"><i
+                                                                                        class="fas fa-map-marker-alt fa-1x"></i></span>
+                                                                                            <textarea
+                                                                                                    id="txtActLocTo"
+                                                                                                    rows="4"
+                                                                                                    class="form-control"
+                                                                                                    placeholder="End Location"
+                                                                                                    onkeyup="textFieldBinder(txtActLocTo,'','eventactivity','endlocation','oldeventactivity')"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <!-- Time Row -->
+                                                                            <div class="col-md-12">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <label class=""
+                                                                                               for="timActTimeFrom">
+                                                                                            <b>Time
+                                                                                                : </b></label>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row ml-5">
+
+                                                                                    <div class="col-md-2">
+                                                                                        <p>From</p>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="Start Time"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fas fa-hourglass-start fa-1x"></i></span>
+                                                                                            <input type="time"
+                                                                                                   id="timActTimeFrom"
+                                                                                                   class="form-control"
+                                                                                                   onchange="textFieldBinder(timActTimeFrom,'','eventactivity','actstarttime','oldeventactivity')"/>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-2">
+                                                                                        <p>To</p>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="End Time"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fas fa-hourglass-end fa-1x"></i></span>
+                                                                                            <input type="time"
+                                                                                                   id="timActTimeTo"
+                                                                                                   class="form-control"
+                                                                                                   onchange="textFieldBinder(timActTimeTo,'','eventactivity','actendtime','oldeventactivity')"/>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                            <!-- Distance Row -->
+                                                                            <div class="col-md-12">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <label class=""
+                                                                                               for="txtDistance">
+                                                                                            <b>Distance
+                                                                                                :</b></label>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label class=""
+                                                                                               for="timTravelTime">
+                                                                                            <b>Time
+                                                                                                :</b></label>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row ml-4">
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      style="color: red" title="Distance"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fas fa-map-signs fa-1x"></i></span>
+                                                                                            <input type="text"
+                                                                                                   id="txtDistance" class="form-control"
+                                                                                                   placeholder="Distance(km)"
+                                                                                                   onkeyup="textFieldBinder(txtDistance,'','eventactivity','distance','oldeventactivity')"/>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      style="color: red" title="Traveling Time"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fa fa-clock fa-1x"></i></span>
+                                                                                            <input type="text"
+                                                                                                   id="timTravelTime" class="form-control"
+                                                                                                   placeholder="Traveling Time"
+                                                                                                   onkeyup="textFieldBinder(timTravelTime,'','eventactivity','traveltime','oldeventactivity')"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row ml-4">
+                                                                                <div class="col-md-8">
+                                                                                </div>
+
+                                                                                <div class="col-md-4 mb-5 float-right">
+                                                                                    <button type="button"
+                                                                                            id="btnDistance"
+                                                                                            class="btn btn-outline-secondary "
+                                                                                            onclick="openMaps();"
+                                                                                            style="width:150px">
+                                                                                        <i class="fas fa-cogs fa-spin fa-1x"></i>
+                                                                                        Calculate
+                                                                                    </button>
+                                                                                </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+
+                                                                        <!-- Inner Event Activity Button -->
+                                                                        <div class="row">
+
+                                                                            <div class="col-md-12 text-right">
+                                                                                <button type="button"
+                                                                                        id="btnInnerEventActClear"
+                                                                                        class="btn btn-outline-secondary "
+                                                                                        onclick="btnInnerEventActClearMC()"
+                                                                                        style="width:80px">Clear
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                        id="btnInnerEventActUpdate"
+                                                                                        class="btn btn-outline-warning"
+                                                                                        onclick="btnInnerEventActUpdateMC()"
+                                                                                        style="width:80px">Update
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                        id="btnInnerEventActAdd"
+                                                                                        class="btn btn-outline-success"
+                                                                                        onclick="btnInnerEventActAddMC()"
+                                                                                        style="width:80px">Add
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <!-- Inner Event Activity Table -->
+                                                                        <div id="innerTableEventAct" class="mt-2">
+                                                                            <script>
+                                                                                var metadatainner = [
+                                                                                    {
+                                                                                        name: 'Activity',
+                                                                                        search: false,
+                                                                                        datatype: 'text',
+                                                                                        property: 'activityId.name'
+                                                                                    },
+                                                                                    {
+                                                                                        name: 'Time',
+                                                                                        search: false,
+                                                                                        datatype: 'text',
+                                                                                        property: 'actstarttime'
+                                                                                    },
+                                                                                    {
+                                                                                        name: 'Location',
+                                                                                        search: false,
+                                                                                        datatype: 'text',
+                                                                                        property: 'startlocation'
+                                                                                    },
+                                                                                    {
+                                                                                        name: 'Distance',
+                                                                                        search: false,
+                                                                                        datatype: 'text',
+                                                                                        property: 'distance'
+                                                                                    },
+                                                                                ];
+                                                                                tableForInnerForm("innerTableEventAct", "tblInnerEventAct", metadatainner, true)
+                                                                            </script>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row row-content mt-2 mb-3">
+                                                            <div class="col-md-12 text-right">
+                                                                <button type="button" id="btnInnerEventClear"
+                                                                        class="btn btn-outline-secondary "
+                                                                        onclick="btnInnerEventClearMC()"
+                                                                        style="width:80px">Clear
+                                                                </button>
+                                                                <button type="button" id="btnInnerEventUpdate"
+                                                                        class="btn btn-outline-warning"
+                                                                        onclick="btnInnerEventUpdateMC()"
+                                                                        style="width:80px">Update
+                                                                </button>
+                                                                <button type="button" id="btnInnerEventAdd"
+                                                                        class="btn btn-outline-success"
+                                                                        onclick="btnInnerEventAddMC()"
+                                                                        style="width:80px">Add
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!-- Inner Event Table-->
+                                                        <div class="row row-content mt-3">
+                                                            <div class="col-md-12">
+
+                                                                <div id="innerTableEvent"
+                                                                     class="col-md-11 mt-3 mt-6">
+                                                                    <script>
+                                                                        var metadatainner = [
+                                                                            {
+                                                                                name: 'Event',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'eventId.name'
+                                                                            },
+                                                                            {
+                                                                                name: 'Mode',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'eventmode'
+                                                                            },
+                                                                            {
+                                                                                name: 'Date',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'eventdate'
+                                                                            },
+                                                                            {
+                                                                                name: 'Start Time',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'starttime'
+                                                                            },
+                                                                            {
+                                                                                name: 'End Time',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'endtime'
+                                                                            },
+                                                                            {
+                                                                                name: 'Location',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'location'
+                                                                            }
+                                                                        ];
+                                                                        tableForInnerForm("innerTableEvent", "tblInnerEvent", metadatainner, true)
+                                                                    </script>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Next Button-->
+                                                        <div class="row row-content mt-5 mb-3">
+                                                            <div class="col-md-12  text-right">
+                                                                    <button type="button" id="btnNxtEvent"
+                                                                            onclick="changeTab('divservice')"
+                                                                            class="btn btn-outline-secondary pull-right"
+                                                                            style="width:80px"> Next <i class='fa fa-arrow-right'></i>
+                                                                    </button>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- End Of the Tab 1 -->
+                                                </div>
+
+
+                                                    <!--Tab 2-->
+                                                <div class="row" id="divservice">
+
+                                                    <!-- Service Details-->
+                                                    <div class="col-md-12 " id="service">
+
+                                                        <div class="row row-content mt-5">
+
+                                                            <div class="col-md-4">
+                                                                <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom"
+                                                                          title="Reservation Number" style="color: red"
+                                                                          class="input-group-text">
+                                                                        <i class="fa fa-edit fa-1x"></i></span>
+                                                                    <input type="text" id="txtResId"
+                                                                           placeholder="Reservation Number"
+                                                                           class="form-control" required disabled/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom"
+                                                                          title="Customer Number" style="color: red"
+                                                                          class="input-group-text">
+                                                                    <i class="fa fa-user fa-1x"></i></span>
+                                                                    <select id="cmbCusNo" class="form-control"
+                                                                            required disabled></select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  data-placement="bottom"
+                                                                  title="Package" class="input-group-text">
+                                                                <i class="fa fa-gift fa-1x"></i></span>
+                                                                    <select id="cmbPackage" class="form-control"
+                                                                            disabled
+                                                                            onchange="textFieldBinder(cmbPackage,'','reservation','packageId','oldreservation')"></select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row row-content">
+
+                                                            <div class="col-md-7">
+
+                                                                <div class="row mt-5">
+                                                                    <div class="col-md-3">
+                                                                    </div>
+
+                                                                    <div class="col-md-6 text-center">
+                                                                        <label for="cmbSerEvent" > </label>
+                                                                        <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom" style="color: red"
+                                                                          title="Event" class="input-group-text">
+                                                                    <i class="fa fa-bookmark fa-1x"></i></span>
+                                                                            <select id="cmbSerEvent" class="form-control" required
+                                                                                    onchange="comboBoxBinder(cmbSerEvent,'','servicereservation','eventId','oldservicereservation')"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom" style="color: red"
+                                                                          title="Service" class="input-group-text">
+                                                                    <i class="fa fa-link fa-1x"></i></span>
+                                                                            <select id="cmbService"
+                                                                                    class="form-control" required
+                                                                                    onchange="comboBoxBinder(cmbService,'','servicereservation','serviceId','oldservicereservation')"></select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group form-group">
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom"
+                                                                              title="Service Charge" style="color: red"
+                                                                              class="input-group-text"><i
+                                                                                class="fa fa-coins fa-1x"></i></span>
+                                                                            <input type="text" id="txtSerCharge"
+                                                                                   placeholder="Service Charge"
+                                                                                   class="form-control"
+                                                                                   onkeyup="textFieldBinder(txtSerCharge,'','reservation','servicecharge','oldreservation')"/>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip" data-placement="bottom"
+                                                                          title="Service Provider" style="color: red"
+                                                                          class="input-group-text"><i
+                                                                            class="fa fa-users fa-1x"></i></span>
+                                                                            <select id="cmbSerProvider"
+                                                                                    class="form-control"
+                                                                                    onchange="comboBoxBinder(cmbSerProvider,'','reservation','','oldreservation')">
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom" style="color: red"
+                                                                      title="Provider Package" class="input-group-text">
+                                                                    <i class="fa fa-gift fa-1x"></i></span>
+                                                                            <select id="cmbProviderPkg"
+                                                                                    class="form-control"
+                                                                                    onchange="comboBoxBinder(cmbProviderPkg,'','servicereservation','providerpackageId','oldservicereservation')"></select>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom"
+                                                                          title="Package Price" style="color: red"
+                                                                          class="input-group-text">
+                                                                        <i class=""><b>Rs.</b></i></span>
+                                                                            <input type="text" id="txtPkgPrice"
+                                                                                   placeholder="Package Price"
+                                                                                   class="form-control"
+                                                                                   onkeyup="textFieldBinder(txtPkgPrice,'','reservation','pkgprice','oldreservation')"/>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom" style="color: red"
+                                                                      title="Reserved Service Price"
+                                                                      class="input-group-text">
+                                                                    <i class=""><b>Rs.</b></i></span>
+                                                                            <input type="text"
+                                                                                   id="txtReservedSerPrice"
+                                                                                   class="form-control"
+                                                                                   placeholder="Total Service Price"
+                                                                                   disabled
+                                                                                   onkeyup="textFieldBinder(txtReservedSerPrice,'','reservation','reservedserprice','oldreservation')"/>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+                                                            <!-- Additinal Features-->
+                                                            <div class="col-md-5">
+                                                                <button type="button" id="btnViewDetails"
+                                                                        class="btn btn-secondary"
+                                                                        style="width:190px; border-bottom: solid #adb5bd 2px"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#addFeatureCollapse">
+                                                                    Additional Features
+                                                                </button>
+
+                                                                <div class="ml-2"
+                                                                     style="border-bottom: solid #adb5bd 2px">
+                                                                </div>
+
+                                                                <div class="collapse ml-3 mb-5"
+                                                                     id="addFeatureCollapse">
+                                                                    <div class="card card-body">
+                                                                        <div class="row">
+
+                                                                            <div class="col-md-11">
+                                                                                <div class="input-group form-group">
+                                                                                    <span data-toggle="tooltip"
+                                                                                          data-placement="bottom"
+                                                                                          title="Feature"
+                                                                                          class="input-group-text">
+                                                                                        <i class="fa fa-cart-plus fa-1x"></i></span>
+                                                                                    <select id="cmbFeature"
+                                                                                            class="form-control"
+                                                                                            onchange="comboBoxBinder(cmbFeature,'','additionalfeatures','addtionalfeaturesId','oldadditionalfeatures')"></select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-8">
+                                                                                <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="Unit Price"
+                                                                                      class="input-group-text">
+                                                                                <i class="fa fa-coins fa-1x"></i></span>
+                                                                                    <input type="text"
+                                                                                           id="txtAddFeaturePrice"
+                                                                                           class="form-control"
+                                                                                           placeholder="Unit Price"
+                                                                                           disabled/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group form-group">
+                                                                        <span data-toggle="tooltip"
+                                                                              data-placement="bottom"
+                                                                              title="Quantity" class="input-group-text">
+                                                                            <i class="fa fa-plus-square fa-1x"></i></span>
+                                                                                    <input type="text" id="txtQty"
+                                                                                           class="form-control"
+                                                                                           placeholder="Quantity"
+                                                                                           onkeyup="textFieldBinder(txtQty,'','additionalfeatures','qty','oldadditionalfeatures')"/>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group form-group">
+                                                                            <span data-toggle="tooltip"
+                                                                                  data-placement="bottom"
+                                                                                  title="Line Total"
+                                                                                  class="input-group-text">
+                                                                            <i class=""></i><b>Rs.</b></span>
+                                                                                    <input type="text"
+                                                                                           id="txtLineTot"
+                                                                                           class="form-control"
+                                                                                           placeholder="Line Total"
+                                                                                           disabled
+                                                                                           onkeyup="textFieldBinder(txtLineTot,'','additionalfeatures','linetotal','oldadditionalfeatures')"/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row mb-3">
+                                                                            <div class="col-md-12 text-right">
+                                                                                <button type="button"
+                                                                                        id="btnInnerAddFeaClear"
+                                                                                        class="btn btn-outline-secondary "
+                                                                                        onclick="btnInnerAddFeaClearMC()"
+                                                                                        style="width:80px">Clear
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                        id="btnInnerAddFeaUpdate"
+                                                                                        class="btn btn-outline-warning"
+                                                                                        onclick="btnInnerAddFeaUpdateMC()"
+                                                                                        style="width:80px">Update
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                        id="btnInnerAddFeaAdd"
+                                                                                        class="btn btn-outline-success"
+                                                                                        onclick="btnInnerAddFeaAddMC()"
+                                                                                        style="width:80px">Add
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <!--Inner Additinal Features Table-->
+                                                                        <div class="row">
+                                                                            <div id="innerTableFeature"
+                                                                                 class="col-md-12 mt-2">
+                                                                                <script>
+                                                                                    var metadatainner = [
+                                                                                        {
+                                                                                            name: 'Feature',
+                                                                                            search: false,
+                                                                                            datatype: 'text',
+                                                                                            property: 'addtionalfeaturesId.name'
+                                                                                        },
+                                                                                        {
+                                                                                            name: 'Unit Price',
+                                                                                            search: false,
+                                                                                            datatype: 'text',
+                                                                                            property: 'addfeatureprice'
+                                                                                        },
+                                                                                        {
+                                                                                            name: 'Qty',
+                                                                                            search: false,
+                                                                                            datatype: 'text',
+                                                                                            property: 'qty'
+                                                                                        },
+                                                                                        {
+                                                                                            name: 'Line Total',
+                                                                                            search: false,
+                                                                                            datatype: 'text',
+                                                                                            property: 'linetotal'
+                                                                                        },
+                                                                                    ];
+                                                                                    tableForInnerForm("innerTableFeature", "tblInnerFeature", metadatainner, true)
+                                                                                </script>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="row row-content mt-3 ml-4">
+                                                            <div class="col-md-3">
+                                                                <div class="input-group form-group">
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="bottom"
+                                                                      title="Additional Feature Cost"
+                                                                      class="input-group-text">
+                                                                    <i class="fa fa-coins fa-1x"></i></span>
+                                                                    <input type="text" id="txtAddCost"
+                                                                           class="form-control"
+                                                                           placeholder="Additional Feature Cost"
+                                                                           onkeyup="textFieldBinder(txtAddCost,'','servicereservation','addtionalfeaturescharge','oldservicereservation')"/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 ml-4">
+                                                                <div class="input-group form-group">
+                                                                <span data-toggle="tooltip" style="color: red"
+                                                                      data-placement="bottom" title="Service Net Total"
+                                                                      class="input-group-text"><i
+                                                                        class=""><b>Rs.</b></i></span>
+                                                                    <input type="text" id="txtNetTot"
+                                                                           class="form-control"
+                                                                           placeholder="Net Total for Service"
+                                                                           onkeyup="textFieldBinder(txtNetTot,'','servicereservation','srlinetotal','oldservicereservation')"/>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3 ml-5">
+                                                                <div class="form-group">
+                                                                    <label class="" for="txtTotAmt"><b>Total Payable
+                                                                        Amount:</b></label>
+                                                                    <div class="input-group form-inline">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="Total Payable Amount"
+                                                                                      style="color: red"
+                                                                                      class="input-group-text">
+                                                                                    <i class=""><b>Rs.</b></i></span>
+                                                                        <input type="text" id="txtTotAmt"
+                                                                               class="form-control"
+                                                                               placeholder="Total Payable Amount"
+                                                                               readonly/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-3 mt-3">
+                                                            <div class="col-md-11 text-right">
+                                                                <button type="button" id="btnInnerSerClear"
+                                                                        class="btn btn-outline-secondary "
+                                                                        onclick="btnInnerSerClearMC()"
+                                                                        style="width:80px">Clear
+                                                                </button>
+                                                                <button type="button" id="btnInnerSerUpdate"
+                                                                        class="btn btn-outline-warning"
+                                                                        onclick="btnInnerSerUpdateMC()"
+                                                                        style="width:80px">Update
+                                                                </button>
+                                                                <button type="button" id="btnInnerSerAdd"
+                                                                        class="btn btn-outline-success"
+                                                                        onclick="btnInnerSerAddMC()"
+                                                                        style="width:80px">Add
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Inner Service Table-->
+                                                        <div class="row mt-4">
+                                                            <div class="col-md-1">
+                                                            </div>
+
+                                                            <div id="innerTableService" class="col-md-12 mt-6">
+                                                                <script>
+                                                                    var metadatainner = [
+                                                                        {
+                                                                            name: 'Service',
+                                                                            search: false,
+                                                                            datatype: 'text',
+                                                                            property: 'serviceId.servicename'
+                                                                        },
+                                                                        {
+                                                                            name: 'Service Provider',
+                                                                            search: false,
+                                                                            datatype: 'text',
+                                                                            property: 'providerpackageId.serviceproviderId.name'
+                                                                        },
+                                                                        {
+                                                                            name: 'Package',
+                                                                            search: false,
+                                                                            datatype: 'text',
+                                                                            property: 'providerpackageId.name'
+                                                                        },
+                                                                        {
+                                                                            name: 'Service Price',
+                                                                            search: false,
+                                                                            datatype: 'text',
+                                                                            property: 'reservedserprice'
+                                                                        }, {
+                                                                            name: 'Add Feature Cost',
+                                                                            search: false,
+                                                                            datatype: 'text',
+                                                                            property: 'addtionalfeaturescharge'
+                                                                        },
+                                                                        {
+                                                                            name: 'Net Total for Service',
+                                                                            search: false,
+                                                                            datatype: 'text',
+                                                                            property: 'srlinetotal'
+                                                                        },
+                                                                    ];
+                                                                    tableForInnerForm("innerTableService", "tblInnerService", metadatainner, true)
+                                                                </script>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Next Button-->
+                                                        <div class="row row-content mt-5 mb-3">
+                                                            <div class="col-md-12  text-right">
+                                                                <button type="button" id="btnNxtService"
+                                                                        onclick="changeTab('divreservation')"
+                                                                        class="btn btn-outline-secondary pull-right"
+                                                                        style="width:80px">Next
+                                                                        <i class='fa fa-arrow-right'></i>
+                                                                </button>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                    <!-- End Of the Tab 2 -->
+
+
+                                                    <!--Tab 3-->
+                                                <div class="row" id="divreservation">
+                                                    <!-- Reservation -->
+                                                    <div class=" col-md-12 " id="reservation">
+                                                        <div class="row row-content">
+
+                                                            <div class="row col-md-12 mt-5">
+
+                                                                <div class="col-md-4">
+                                                                    <div class="input-group form-group">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom"
+                                                                          title="Reservation Number" style="color: red"
+                                                                          class="input-group-text">
+                                                                        <i class="fa fa-edit fa-1x"></i></span>
+                                                                        <input type="text" id="txtNumber"
+                                                                               placeholder="Reservation Number"
+                                                                               class="form-control" required
+                                                                               disabled/>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="input-group form-group ">
+                                                                    <span data-toggle="tooltip"
+                                                                          data-placement="bottom" title="Registered By"
+                                                                          style="color: red"
+                                                                          class="input-group-text">
+                                                        <i class="fa fa-user fa-1x"></i></span>
+                                                                        <select id="cmbRegBy" class="form-control"
+                                                                                placeholder="Select Employee"
+                                                                                required disabled></select>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="input-group form-group">
+                                                            <span data-toggle="tooltip"
+                                                                  data-placement="bottom" title="Registered Date"
+                                                                  style="color: red"
+                                                                  class="input-group-text">
+                                                                    <i class="fa fa-calendar fa-1x"></i></span>
+                                                                        <input type="text" id="dteRegDate"
+                                                                               placeholder="Enter Date Here"
+                                                                               class="form-control" required
+                                                                               disabled/>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row col-md-12 mt-5">
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="" for="cmbCusNumber"> <b>Customer
+                                                                            No :</b></label>
+                                                                        <div class="input-group form-inline"
+                                                                             style="margin-left: 5px">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="Customer Number"
+                                                                                      style="color: red"
+                                                                                      class="input-group-text"><i
+                                                                                        class="fa fa-edit fa-1x"></i></span>
+                                                                            <select id="cmbCusNumber"
+                                                                                    class="form-control" required
+                                                                                    disabled></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label style="margin-left:-12px"
+                                                                               class="" for="cmbResStatus"> <b>Res
+                                                                            Status :</b></label>
+                                                                        <div class="input-group form-inline"
+                                                                             style="margin-left: 5px">
+                                                                            <span data-toggle="tooltip"
+                                                                                  data-placement="bottom"
+                                                                                  title="Reservation Status"
+                                                                                  style="color: red"
+                                                                                  class="input-group-text"><i
+                                                                                    class="fa fa-tags fa-1x"></i></span>
+                                                                            <select id="cmbResStatus"
+                                                                                    class="form-control"
+                                                                                    required></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group ">
+                                                                        <label class="" for="cmbResPkg"> <b>Package
+                                                                            :</b></label>
+                                                                        <div class="input-group form-inline"
+                                                                             style="margin-left: 10px">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="Package"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fa fa-gift fa-1x"></i></span>
+                                                                            <select id="cmbResPkg"
+                                                                                    class="form-control" required
+                                                                                    disabled></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row row-content col-md-12 mt-5">
+                                                                  <div class="row row-content ml-1">
+                                                                            <div class="col-md-3">
+                                                                                <div class="input-group form-group">
+                                                                                    <span data-toggle="tooltip"
+                                                                                          data-placement="bottom"
+                                                                                          title="Total Price"
+                                                                                          style="color: red"
+                                                                                          class="input-group-text">
+                                                                                    <i class=""><b>Rs.</b></i></span>
+                                                                                    <input type="text" id="txtTotal"
+                                                                                           placeholder="Total Price"
+                                                                                           class="form-control"
+                                                                                           required disabled
+                                                                                           onkeyup="textFieldBinder(txtTotal,'','reservation','totalprice','oldreservation')"/>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-1">
+                                                                                <b>-</b>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <div class="input-group form-group">
+                                                                                <span data-toggle="tooltip"
+                                                                                      data-placement="bottom"
+                                                                                      title="Discount"
+                                                                                      class="input-group-text">
+                                                                                    <i class="fa fa-coins fa-1x"></i></span>
+                                                                                    <input type="text"
+                                                                                           id="txtDiscount" placeholder="Discount"
+                                                                                           class="form-control"
+                                                                                           onkeyup="textFieldBinder(txtDiscount,'','reservation','discount','oldreservation')"/>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-1">
+                                                                                <b>=</b>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <div class="input-group form-group">
+                                                                                    <span data-toggle="tooltip"
+                                                                                          data-placement="bottom"
+                                                                                          title="Total Payable"
+                                                                                          style="color: red"
+                                                                                          class="input-group-text">
+                                                                                                <i class=""><b>Rs.</b></i></span>
+                                                                                    <input type="text"
+                                                                                           id="txtTotPayable"
+                                                                                           placeholder="Total Payable"
+                                                                                           class="form-control"
+                                                                                           required
+                                                                                           onkeyup="textFieldBinder(txtTotPayable,'','reservation','totalpayable','oldreservation')"/>
+                                                                                </div>
+                                                                            </div>
+                                                                  </div>
+
+                                                                  <div class="row col-md-12 mt-2">
+                                                                        <div class="col-md-7">
+
+<!--                                                                            <div class="row row-content col-md-12">-->
+<!--                                                                                <div class="col-md-4">-->
+<!--                                                                                </div>-->
+
+<!--                                                                                <div class="col-md-7">-->
+<!--                                                                                <b>Advance Payment(50%) :</b>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+
+                                                                            <div class="row row-content col-md-12">
+
+                                                                                <div class="col-md-5">
+                                                                                <div class="input-group form-group">
+                                                                                    <span data-toggle="tooltip"
+                                                                                          data-placement="bottom"
+                                                                                          title="Precentage"
+                                                                                          style="color: red"
+                                                                                          class="input-group-text">
+                                                                                                <i class=""><b>% Rs.</b></i></span>
+                                                                                    <input type="text"
+                                                                                           id="txtPrecent"
+                                                                                           placeholder="Advance Precentage"
+                                                                                           class="form-control"
+                                                                                           required
+                                                                                           onkeyup="textFieldBinder(txtPrecent,'','reservation','precentage','oldreservation')"/>
+                                                                                </div>
+                                                                                </div>
+
+
+                                                                                <div class="col-md-6">
+                                                                                    <div class="input-group form-group">
+                                                                                    <span data-toggle="tooltip"
+                                                                                          data-placement="bottom"
+                                                                                          title="Advance Payment"
+                                                                                          style="color: red"
+                                                                                          class="input-group-text">
+                                                                                                <i class=""><b>% Rs.</b></i></span>
+                                                                                        <input type="text"
+                                                                                               id="txtAdvance"
+                                                                                               placeholder="Advance Payment"
+                                                                                               class="form-control"
+                                                                                               required
+                                                                                               onkeyup="textFieldBinder(txtAdvance,'','reservation','advance','oldreservation')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div class="col-md-5">
+                                                                        <div class="input-group form-group">
+                                                                            <span data-toggle="tooltip"
+                                                                                  data-placement="bottom"
+                                                                                  title="Description"
+                                                                                  class="input-group-text" id="span">
+                                                                            <i class="fa fa-align-justify fa-1x"></i></span>
+                                                                            <textarea id="txtDescription"
+                                                                                      placeholder="Description"
+                                                                                      class="form-control"
+                                                                                      style="height: 90px;"
+                                                                                      onkeyup="textFieldBinder(txtDescription,'','serviceprovider','description','oldserviceprovider')"></textarea>
+                                                                        </div>
+                                                                        </div>
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row row-content mb-3">
+                                                            <div class="col-md-12 text-right">
+                                                                <button type="button" id="btnClear"
+                                                                        class="btn btn-outline-secondary ml-2"
+                                                                        style="width:10%"><i
+                                                                        class='fa fa-eraser'></i>
+                                                                    Clear
+                                                                </button>
+                                                                <button type="button" id="btnUpdate"
+                                                                        class="btn btn-outline-warning ml-2"
+                                                                        style="width:10%"><i class='fa fa-edit'></i>
+                                                                    Update
+                                                                </button>
+                                                                <button type="submit" id="btnAdd"
+                                                                        class="btn btn-outline-success ml-2"
+                                                                        style="width:10%"><i class='fa fa-save'></i>
+                                                                    Save
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    </div>
+
+                                                </div>
+                                                    <!-- End Of the Tab 3 -->
+
+
+                                                    <!--Tab 4-->
+                                                <div class="row" id="divtable">
+
+                                                    <!-- Table View -->
+                                                    <!-- Main Table-->
+                                                    <div class="col-md-12" id="tableView">
+                                                        <div class="row row-content " id="reservationView">
+
+                                                        <div class="col-md-12 ">
+                                                                <div class="row">
+                                                                    <div class=" container-fluid">
+                                                                        <input type="button"
+                                                                               class="btn btn-outline-primary"
+                                                                               value="Print Table"
+                                                                               id="btnPrintTable"
+                                                                               onclick="btnPrintTableMC()"/>
+                                                                        <div class="float-right">
+                                                                            <input style="font-family: 'Helvetica', FontAwesome,sans-serif;"
+                                                                                   placeholder='&#xf002; Search '
+                                                                                   class="form-control" type="text"
+                                                                                   onblur="this.focus()"
+                                                                                   id="txtSearchName"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <hr/>
+
+                                                            <div class="row row-content">
+                                                                <div class="table-responsive" id="tableParent"
+                                                                     class="table-container ml-2">
+
+                                                                    <script>
+
+                                                                        function getNameColumn(ob) {
+                                                                            return ob.callingname + "(" + ob.number + ")";
+                                                                        }
+
+                                                                        var metadata = [
+                                                                            {
+                                                                                name: 'Reg Number',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'regno'
+                                                                            },
+                                                                            {
+                                                                                name: 'Customer Number',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'customerId.cname'
+                                                                            },
+                                                                            {
+                                                                                name: 'Total Price',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'totalprice'
+                                                                            },
+                                                                            {
+                                                                                name: 'Total Payable',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'totalpayable'
+                                                                            },
+                                                                            {
+                                                                                name: 'Advance Payment',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'advance'
+                                                                            },
+                                                                            {
+                                                                                name: 'Status',
+                                                                                search: false,
+                                                                                datatype: 'text',
+                                                                                property: 'resstatusId.name'
+                                                                            }
+                                                                        ];
+                                                                        table("tableParent", "tblReservation", metadata, true);
+
+                                                                    </script>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <div style="display: inline-block ; float: left">
+                                                                    <select class="form-control input"
+                                                                            id="cmbPageSize"
+                                                                            style="width: 80px;">
+                                                                        <option selected value="10">10</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="30">30</option>
+                                                                        <option value="500">500</option>
+                                                                        <option value="1000">1000</option>
+                                                                    </select>
+                                                                    <script>
+                                                                        cmbPageSize.onchange = function chnagePageSize() {
+                                                                            activepage = 1;
+                                                                            btnSearchMC();
+                                                                        };
+                                                                    </script>
+                                                                </div>
+
+                                                                <div style="display: inline-block; margin-left: 10px;">
+                                                                    <ul id="pagination" class="pagination"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <!-- End Of the Tab 3 -->
+
+                                                <!-- Tab Contents close-->
+
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer" style="background-color: white">
+            <div id="err">
+                <h3>Error Log</h3>
+            </div>
+        </div>
+
+        <div class="modal fade" data-backdrop="static" id="exampleModalLong" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content" style="border: 3px solid; border-color: silver; outline-color: silver">
+                    <div class="modal-header" style="background-color: #D7A3A4">
+                        <h3 class="modal-title" id="exampleModalLongTitle">Reservation
+                        Details</h3>
+                        <button style="color: ghostwhite;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid" id="resPrintView">
+                            <div class="row" style="margin-top: 5px;">
+                                <div class="col-md-12 mt-5">
+
+                                    <div class="text-center">
+                                        <!--  <img src="resourse/image/crown1.png" style="height: 190px; width: 250px">-->
+                                        <h2 class="font-weight-bold">Final Reservation Sheet</h2>
+                                        <h3 class="font-weight-bold text-center">Golder Crown Wedding Planners</h3>
+                                    </div>
+
+                                    <div class="row row-content mt-5 text-center">
+                                        <div class="col-md-12 text-center form-inline">
+                                            <div class="col-md-5">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td class="text-left font-weight-bold">Reservation No :</td>
+                                                        <td id="tdres" class="text-left"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left font-weight-bold">Added Date :</td>
+                                                        <td id="tdregdate" class="text-left"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left font-weight-bold">Added By :</td>
+                                                        <td id="tdregby" class="text-left"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-md-7">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td class="text-left font-weight-bold">Customer Name:</td>
+                                                        <td id="tdcus" class="text-left"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left font-weight-bold">Contact No :</td>
+                                                        <td id="tdcontact" class="text-left"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-left font-weight-bold">E-mail :</td>
+                                                        <td id="tdemail" class="text-left"> </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-center mt-5">
+                                        <div class="col-md-12 text-center">
+                                            <h4 class="font-weight-bold text-center">Events and Reserved Services</h4>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <h5>Event Details</h5>
+                                                <table class="table table-striped table-hover" id="tblEventDetails" >
+                                                    <thead>
+                                                    <tr style="margin-bottom: 50px">
+                                                        <th>Id </th>
+                                                        <th>Event</th>
+                                                        <th>Event Date</th>
+                                                        <th>Start Time</th>
+                                                        <th>End Time</th>
+                                                        <th>Event Location</th>
+                                                        <th colspan="5"> Event service Details</th>
+                                                    </tr>
+
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <td colspan="6">Total Number of Events :</td>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+                                        </div>
+
+                                    <div class="row row-content text-center mt-5">
+                                        <div class="text-center mt-3">
+                                            <h4 class="font-weight-bold text-center">Billing Details</h4>
+                                        </div>
+
+                                        <table class="table table-border">
+                                            <tr>
+                                                <td class="font-weight-bold text-left">Total Price :</td>
+                                                <td id="tdtotal" class="text-left"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold text-left">Discount :</td>
+                                                <td id="tddiscount" class="text-left"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold text-left">Total Payable :</td>
+                                                <td id="tdpayable" class="text-left"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold text-left">Advance :</td>
+                                                <td id="tdadvance" class="text-left"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-1">
+                                    <p style="color: black;" class="font-weight-bold">Note :</p>
+                                </div>
+                                <div class="col-md-11">
+                                    <p style="color: black; font-size: small;">
+                                        This is not the final draft<br>
+                                        The Total amount may vary according to your customizations.<br>
+                                        Any Amendment which makes TWO DAYS PRIOR to the event for the above mentioned event dates or times will only be considered.<br>
+                                        The advance payment is NON-REFUNDABLE.<br>
+                                        Advance payment or full payment should be made BEFORE the event to confirm the reservation.<br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: beige">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="printRow()">Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+</html>

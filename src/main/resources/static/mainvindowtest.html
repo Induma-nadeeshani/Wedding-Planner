@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BIT Final Project</title>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <script src="resourse/script/sweetalert.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+
+    <style>
+        #employeecart{
+            background-image: url(resourse/image/cart/employee.png);
+            background-size: cover;
+            width: 100%;
+            height: 100%;}
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h1><b>Golden Crown</b></h1>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- Dropdown -->
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="Employee">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="User">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="Privilage">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-edit"></i>
+                    Reservation
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="Customer">
+                        <a href="http://localhost:8080/customer">Customer </a>
+                    </li>
+                    <li id="Reservation">
+                        <a href="http://localhost:8080/reservation">Reservation</a>
+                    </li>
+                    <li id="CustomerPayment">
+                        <a href="http://localhost:8080/cuspayment"> Customer Payment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#serviceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-tags"></i>
+                    Service
+                </a>
+                <ul class="collapse list-unstyled" id="serviceSubmenu">
+                    <li id="Service">
+                        <a href="http://localhost:8080/service">Service</a>
+                    </li>
+                    <li id="Packages">
+                        <a href="http://localhost:8080/package">Packages</a>
+                    </li>
+                    <li id="ServiceProvider">
+                        <a href="http://localhost:8080/serviceprovider">Service Provider</a>
+                    </li>
+                    <li id="ProviderPackage">
+                        <a href="http://localhost:8080/providerpackage">Provider Package</a>
+                    </li>
+                    <li id="SpPayment">
+                        <a href="http://localhost:8080/sppayment"> Service Provider Payments </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#vehicleSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-car"></i>
+                    Vehicle
+                </a>
+                <ul class="collapse list-unstyled" id="vehicleSubmenu">
+                    <li id="Vehicle">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li id="Driver">
+                        <a href="http://localhost:8080/driver">Driver</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#allocationSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-bookmark">  </i>
+                    Allocation
+                </a>
+                <ul class="collapse list-unstyled" id="allocationSubmenu">
+                    <li id="VehicleAllocation">
+                        <a href="http://localhost:8080/vehicleallocation"> Vehicle Allocation </a>
+                    </li>
+                    <li id="SupervisorAllocation">
+                        <a href="http://localhost:8080/supervisorallocation"> Supervisor Allocation </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-chart-line"></i>
+                    Reports
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li id="module">
+                        <a href="http://localhost:8080/suppervisorallocationcountreport"> Supervisor Report </a>
+                    </li>
+                    <li id="mod">
+                        <a href="http://localhost:8080/paymentmonthlyreport"> Payment Monthly Report </a>
+                    </li>
+                    <li id="">
+                        <a href="http://localhost:8080/reservationreport"> Reservation Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Module 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href= "http://localhost:8080/schedule">
+                    <i class="fas fa-image"></i>
+                    Schedule
+                </a>
+            </li>
+
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div style="position: static"  class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-lg" style="background-color: #DCB6BA;">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+                    <button type="button" class="btn btn-lg ml-3 rounded-circle" style="background-color: #DCB6BA;">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                        <span></span>
+                    </button>
+
+                    <img id="logo" src="/resourse/image/logo.png" class="text-center align-items-center"
+                         style="width: 200px; height: 100px; margin-bottom: -13px; margin-top: -19px; margin-left: 450px">
+                    <a href="index"></a>
+
+
+                </div>
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <a class="text-white float-right mr-3" id="loggedIn" href="#"> Logged As :
+                        <p class="" id="lblLoggedAsUser" style="font-weight: bolder">987</p>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <button type="button" class="btn btn-lg rounded-circle mr-1" style="background-color:#DCB6BA;">
+                            <a href="#"> <i class="fa fa-bell"></i></a>
+                            <span></span>
+                        </button>
+                        <ul class="navbar-nav">
+                        <span class="badge badge-pill ml-1" style="background-color: #DCB6BA;">
+                            <li class="nav-item dropdown" style="margin-left: -35px">
+                                <a class="nav-link dropdown-toggle" style="width: 160px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#"><i class="far fa-sliders-v"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i
+                                            class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </span>
+                        </ul>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody">
+
+            <div class="row mt-5 mb-4 ml-5">
+            <div class="col-md-8">
+                <h1 style="font-size: 70px;" id="title"><b>Golden Crown Wedding Planners. </b></h1>
+            </div>
+            <div class="col-md-4 form-inline">
+                <div class="digital_clock_wrapper float-left">
+                    <div id="digit_clock_time"></div>
+                    <div id="digit_clock_date"></div>
+                </div>
+
+            </div>
+            </div>
+
+            <div id="row" class="row mt-3 ml-3">
+                <div class="col-md-8 mr-5" style="background-color: rgba(255,255,255,0.3)">
+
+                    <div class="row mt-3 mb-4 ml-5">
+
+                    <div class="card mt-5 border-warning Customer" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                        <img class="card-img-top" src="../resourse/image/customer.jpg" alt="Card image cap">
+                        <a href="customer">Customer</a>
+                    </div>
+
+                    <div class="card mt-5 border-warning Reservation" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                        <img class="card-img-top" src="../resourse/image/res.jpg" alt="Card image cap">
+                        <a href="reservation">Reservation</a>
+                    </div>
+
+                    <div class="card mt-5 border-warning VehicleAllocation" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                            <img class="card-img-top" src="../resourse/image/vehallo.jpg" alt="Card image cap">
+                            <a href="vehicleallocation">Vehicle Allocation</a>
+                        </div>
+
+                    <div class="card mt-5 border-warning CustomerPayment" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                        <img class="card-img-top" src="../resourse/image/payment.jpg" alt="Card image cap">
+                        <a href="cuspayment">Customer Payment</a>
+                    </div>
+
+                </div>
+
+                    <div class="row ml-5 mt-3 mb-5">
+                    <div class="card border-warning Package" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                            <img class="card-img-top" src="../resourse/image/package.jpg" alt="Card image cap">
+                            <a href="package">Packages</a>
+                    </div>
+
+                    <div class="card border-warning Vehicle" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                        <img class="card-img-top" src="../resourse/image/car.jpg" alt="Card image cap">
+                        <a href="vehicle">Vehicles</a>
+                    </div>
+
+                    <div class="card border-warning Driver" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                        <img class="card-img-top" src="../resourse/image/driver.jpg" alt="Card image cap">
+                        <a href="driver">Drivers</a>
+                    </div>
+
+                    <div class="card border-warning Service" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                        <img class="card-img-top" src="../resourse/image/service.jpg" alt="Card image cap">
+                        <a href="supervisorallocation">Services</a>
+                    </div>
+                    </div>
+
+                    <div class="row ml-5 mt-3 mb-5">
+                        <div class="card border-warning SupervisorAllocation" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                            <img class="card-img-top" src="../resourse/image/supervisor.jpg" alt="Card image cap">
+                            <a href="supervisorallocation">Supervisor Allocation</a>
+                        </div>
+
+                        <div class="card border-warning SpPayment" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                            <img class="card-img-top" src="../resourse/image/sppayment.jpg" alt="Card image cap">
+                            <a href="sppayment">Service Provider Payments</a>
+                        </div>
+
+                        <div class="card border-warning ServiceProvider" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                            <img class="card-img-top" src="../resourse/image/sp.jpg" alt="Card image cap">
+                            <a href="serviceprovider">Service Providers</a>
+                        </div>
+
+                        <div class="card border-warning ProviderPackage" style="margin-left: 33px; margin-top: 25px; width: 10rem; height: 15rem">
+                            <img class="card-img-top" src="../resourse/image/pp.jpg" alt="Card image cap">
+                            <a href="providerpackage">Provider Packages</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3" style="height: auto;background-color: rgba(255,255,255,0.7)">
+                    <div class="row"> <div class="container-fluid text-center">
+                        <h3 class="mb-4 mt-4"><b> Notifications </b> </h3>
+                    </div></div>
+                    <div class="row">
+                        <div class="col-md-12 text-dark" id="divNotification2"></div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12 text-dark" id="divNotification"></div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-12 text-dark" id="divNotification3"></div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        <div id="err" style="margin-top: 200px"></div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    function currentTime() {
+        var date = new Date(); /* creating object of Date class */
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+        var midday = "AM";
+        midday = (hour >= 12) ? "PM" : "AM"; /* assigning AM/PM */
+        hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); /* assigning hour in 12-hour format */
+        hour = changeTime(hour);
+        min = changeTime(min);
+        sec = changeTime(sec);
+        document.getElementById("digit_clock_time").innerText = hour + " : " + min + " : " + sec + " " + midday; /* adding time to the div */
+
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        var curWeekDay = days[date.getDay()]; // get day
+        var curDay = date.getDate();  // get date
+        var curMonth = months[date.getMonth()]; // get month
+        var curYear = date.getFullYear(); // get year
+        var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear; // get full date
+        document.getElementById("digit_clock_date").innerHTML = date;
+
+        var t = setTimeout(currentTime, 1000); /* setting timer */
+    }
+
+    function changeTime(k) { /* appending 0 before time elements if less than 10 */
+        if (k < 10) {
+            return "0" + k;
+        }
+        else {
+            return k;
+        }
+    }
+    currentTime();
+</script>
+
+    <div class="overlay"></div>
+
+
+<script>
+
+
+    window.addEventListener("load", initialize);
+
+
+
+    //Initializing Functions
+    function initialize() {
+
+        divNotification.innerHTML = "";
+        // get customer order list
+
+        var reservationlist = httpRequest("/reservation/listbystatus", "GET");
+        rpropertylist = ['regno',''];
+
+        var eventlist = httpRequest("/eventreservation/listbyfivedaynear", "GET");
+        eventpropertylist = ['regno',''];
+
+        var pendinglist = httpRequest("/reservation/pendinglist", "GET");
+        pendingpropertylist = ['regno',''];
+
+        // get production order list
+
+
+        if (session.getObject('activeuser').employeeId.designationId.name == "Manager" || session.getObject('activeuser').employeeId.designationId.name == "Owner" || session.getObject('activeuser').employeeId.designationId.name == "Admin") {
+            //Manager
+
+            createNotification(reservationlist, rpropertylist, "Not Admitted Reservations");
+            createNotification2(eventlist, eventpropertylist, "Events within 5 days");
+            createNotification3(pendinglist, pendingpropertylist, "Pending Events");
+        }
+    }
+
+    //not admitted
+     function createNotification(list,propertyarray,text) {
+         divNotification.innerHTML = text;
+         for( var index in list){
+             var row = document.createElement('div');
+             row.classList.add('row');
+             row.classList.add('mt-2');
+             var col = document.createElement('div');
+             col.classList.add('col-12');
+             var h6 = document.createElement('h6');
+             h6.classList.add('font-weight-bold');
+             h6.innerHTML = getDataFromObjectList(list[index],propertyarray[0] );
+
+             col.appendChild(h6);
+             row.appendChild(col);
+             divNotification.appendChild(row);
+         }
+
+     }
+
+     //within 5 days
+    function createNotification2(list,propertyarray,text) {
+        divNotification2.innerHTML = text;
+        for( var index in list){
+            var row = document.createElement('div');
+            row.classList.add('row');
+            row.classList.add('mt-2');
+            var col = document.createElement('div');
+            col.classList.add('col-12');
+            var h6 = document.createElement('h6');
+            h6.classList.add('font-weight-bold');
+            h6.innerHTML = list[index][0] + " --> "+  list[index][1] + " --> "+ list[index][2];
+
+            col.appendChild(h6);
+            row.appendChild(col);
+            divNotification2.appendChild(row);
+        }
+
+    }
+
+    //pending
+    function createNotification3(list,propertyarray,text) {
+        divNotification3.innerHTML = text;
+        for( var index in list){
+            var row = document.createElement('div');
+            row.classList.add('row');
+            row.classList.add('mt-2');
+            var col = document.createElement('div');
+            col.classList.add('col-12');
+            var h6 = document.createElement('h6');
+            h6.classList.add('font-weight-bold');
+            h6.innerHTML = getDataFromObjectList(list[index],propertyarray[0] );
+
+            col.appendChild(h6);
+            row.appendChild(col);
+            divNotification3.appendChild(row);
+        }
+
+    }
+
+
+
+</script>
+</body>
+</html>

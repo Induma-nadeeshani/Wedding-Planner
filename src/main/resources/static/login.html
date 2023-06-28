@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Crown Wedding Planners</title>
+
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="resourse/fontawesome/css/all.css">
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <link rel="stylesheet" href="resourse/style/login.css">
+
+    <style>
+
+        img {
+            border-radius: 300px;
+        }
+
+    </style>
+
+
+    <script>
+
+        /*  $.get( "/login?error=true", function( data ) {
+              $( "#lblErr" ).css("display","block");
+
+          });*/
+
+        function btnLogin() {
+
+            if (username.value != "" && password.value != "") {
+                loginuser.loginusername = username.value;
+                session.setObject("loginuser", loginuser);
+            }
+
+        }
+
+        window.addEventListener("load", initialize);
+
+        //Initializing Functions
+        function initialize() {
+            loginuser = new Object();
+            session.setObject("loginuser", new Object());
+
+            var url = window.location.href;
+            if (url == "http://localhost:8080/login?error=detailserr") {
+                $("#lblErrDetails").css("display", "block");
+                $("#lblErrUInactive").css("display", "none");
+            } else if (url == "http://localhost:8080/login?error=notactive") {
+                $("#lblErrDetails").css("display", "none");
+                $("#lblErrUInactive").css("display", "block");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+<div class="row">
+    <div class="col-md-6">
+    <form class="box" action="/login" method="POST">
+            <img id="logo" class="logo" src="resourse/image/crown1.png" style=" height: 320px; width: 300px;
+            margin-left: 10px; margin-top: -230px; margin-bottom: -40px">
+        <h1 style="margin-top: 50px">Login</h1>
+        <p class="text-muted"> Please enter your username and password!</p>
+        <input type="text" name="userName" id="username" placeholder="Username">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <div align="center" id="lblErrDetails" style="display: none">
+            <p style="font-size: 20px; color: #FF1C19;">User Name or Password is Invalid, please verify</p>
+        </div>
+        <div align="center" id="lblErrInactive" style="display: none">
+            <p style="font-size: 20px; color: #FF1C19;">Your Account id Disabled, Please contact admin</p>
+        </div>
+        <a class="forgot text-muted" href="#">Forgot password?</a>
+        <input type="submit" name="" value="Login" id="btnlogin" onclick="btnLogin()">
+        <div class="col-md-12">
+            <ul class="social-network social-circle" style="margin-bottom: 20px">
+                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" class="icoIntagram" title="Instagram +"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </form>
+
+</div>
+</div>
+</body>
+</html>

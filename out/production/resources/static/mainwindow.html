@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script>
+
+        window.addEventListener("load", initialize);
+        function initialize() {
+            console.log(session.getObject("loginuser"));
+
+            if (session.getObject("loginuser") != null ) {
+                    lblLogUser.innerHTML = session.getObject("loginuser").loginusername;
+            }else
+                window.location.href = "http://localhost:8080/login";
+
+        }
+        function btnSignoutMC() {
+
+          /*  var option = window.confirm("\n\nAre your sure to Sign out... ? ");
+            if(option==true) {
+                httpRequest("/logout","GET");
+            }*/
+            swal({
+                title: "Are you sure to Sign out?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                if (willDelete){
+                    swal({title:"Sign Out Successfully...!",
+                        text:"\n ......Good Bye....\n",
+                        icon: "success",
+                        timer: 3000,
+                        buttons: false,
+                    });
+                    window.location.assign("/logout")
+                }else{}
+        });
+        }
+
+    </script>
+</head>
+
+<body style="height:100%;" id="body">
+    
+    <!-- Header -->
+    <div class="container-fluid">
+
+        <div class="row" style="background-color: turquoise;">
+            <div class="col-md-4 text-center"> <h1> Logo </h1> </div>
+            <div class="col-md-8 text-center">  <h1> ABC Company </h1> </div>
+        </div>
+           
+    </div>
+
+
+    <!--header area nav bar  -->
+    <nav class="navbar bg-dark navbar-expand-sm navbar-dark sticky-top">
+        <div class="container-fluid">
+            <!--  Manu bar -->
+        <ul class="navbar-nav">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#"> <span class="fa fa-home fa-2x"></span> </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Admin </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/employee"> Employee </a>
+                    <a class="dropdown-item" href="http://localhost:8080/user"> User </a>
+                    <a class="dropdown-item" href="http://localhost:8080/privilage"> Privilege </a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Product </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/item"> Item </a>
+                    <a class="dropdown-item" href="http://localhost:8080/brand"> Brand </a>
+                    <a class="dropdown-item" href="http://localhost:8080/subcategory"> Subcategory </a>
+                    <a class="dropdown-item" href="http://localhost:8080/category"> Category </a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Purchase </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/supplier"> Supplier </a>
+                    <a class="dropdown-item" href="http://localhost:8080/qr"> Quotation Request </a>
+                    <a class="dropdown-item" href="http://localhost:8080/porder"> Purchase Order </a>
+                    <a class="dropdown-item" href="http://localhost:8080/gen"> GRN </a>
+                    <a class="dropdown-item" href="http://localhost:8080/grnreturn"> GRN Return </a>
+                    <a class="dropdown-item" href="http://localhost:8080/spayment"> Supplier Payment </a>
+                </div>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Sales </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="http://localhost:8080/custoer"> Customer </a>
+                    <a class="dropdown-item" href="http://localhost:8080/corder"> Customer Order </a>
+                    <a class="dropdown-item" href="http://localhost:8080/cinvoice"> Customer Invoice </a>
+                    <a class="dropdown-item" href="http://localhost:8080/cpayment"> Customer Payment </a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Report </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"href="http://localhost:8080/report1"> Report 1 </a>
+                    <a class="dropdown-item" href="http://localhost:8080/report2"> Report 2 </a>
+                    <a class="dropdown-item" href="http://localhost:8080/report3"> Report 3 </a>
+                    <a class="dropdown-item" href="http://localhost:8080/report4"> Report 4 </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Report new </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"href="http://localhost:8080/report1"> Report 1 </a>
+                    <a class="dropdown-item" href="http://localhost:8080/report2"> Report 2 </a>
+                    <a class="dropdown-item" href="http://localhost:8080/report3"> Report 3 </a>
+                    <a class="dropdown-item" href="http://localhost:8080/report4"> Report 4 </a>
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- log out / user name -->
+        <ul class="nav pull-right">
+
+
+
+            <li  class="nav-item" style="margin-left: 10px;">
+                <!--<a href="#" style="color: white;"> Sign Out <i class="fa fa-power-off"></i> </a>-->
+                <form oonsubmit="return false">
+                    <span style="color: white;" id="lblLogUser">User Name</span>
+                    <span style="color: white;"> <i class="fa fa-user"></i></span>
+                    <button type="button" onclick="btnSignoutMC()" class="btn btn-link text-light" style="text-decoration: none" > Sign Out <i class="fa fa-power-off"></i></button>
+                </form>
+            </li>
+
+        </ul>
+
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container-fluid dashbordbody">
+        <div class="row">
+            <div class="col-md-8 mr-5" style="height: 200px;background-color: rgba(255,255,255,0.3)">
+                Quick access Element here
+            </div>
+            <div class="col-md-3 ml-5" style="height: 200px;background-color: rgba(255,255,255,0.3)">
+                Notification here
+            </div>
+        </div>
+    </div>
+
+<div id="err"></div>
+
+</body>
+</html>

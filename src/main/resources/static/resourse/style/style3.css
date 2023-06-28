@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+#digit_clock_time {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 20px;
+}
+#digit_clock_date {
+    font-family: 'Orbitron', sans-serif;
+    color: silver;
+    font-size: 19px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+.digital_clock_wrapper{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 10px 10px 10px;
+    max-width: 500px;
+    height: 125px;
+    /*width: 100%;*/
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+/*
+    DEMO STYLE
+*/
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+#lblLogUser{
+    color: black;
+}
+
+/* ---------------------------------------------------
+    Main Window STYLE
+----------------------------------------------------- */
+#title{
+    font-family:'Harrington', fantasy;
+    color: goldenrod;
+    -webkit-text-stroke: 2px lightgoldenrodyellow;
+    position: center;
+    left: 150px;
+}
+
+.card-img-top{
+    cursor: pointer;
+}
+
+#row a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,192,203,0.5);
+    color: maroon !important;
+    -webkit-text-stroke: 1px black;
+    font-family: sans-serif;
+    font-size: 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+.card-img-top:hover {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+
+}
+
+#row a:hover{
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    z-index: 999;
+    background: #b39d9f;
+    color: #fff;
+    transition: all 0.3s;
+    /*overflow-y: scroll;*/
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#dismiss {
+    width: 35px;
+    height: 65px;
+    line-height: 35px;
+    text-align: center;
+    background: #b39d9f;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+}
+
+#dismiss:hover {
+    background: #fff;
+    color: #b39d9f;
+}
+
+.sidebar-header{
+    background: #b0abab;
+}
+#sidebar h1 {
+    font-family: 'Harrington', fantasy;
+    font-size: 30px;
+    -webkit-text-stroke: 1px black;
+    color: #5a6268;
+    outline: #0b2e13;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+#sidebar .sidebar-header {
+    margin-top: 40px;
+    padding: 20px;
+    background: #b39d9f;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #b39d9f;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #b39d9f;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #b39d9f;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #b39d9f;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.row-content{
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-bottom: 1px ridge;
+}
+
+#webtitle{
+    font-family:'Harrington', fantasy;
+    -webkit-text-stroke: 2px slategrey;
+    color: silver;
+
+}
+
