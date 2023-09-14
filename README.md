@@ -7,7 +7,8 @@ Customers can select several services from different service providers and custo
 Budget calculation processes and payment transaction processes can be done through the proposed system. 
 The proposed system will easily track the availability of vehicles, drivers, and supervisors so that it will be easy for the system users to allocate vehicles, drivers, and supervisors during the booking process without wasting time checking availability.
 This system will provide facilities to get customers’ and supervisors’ reviews and manage them properly.
-For each booking, the new system will generate a schedule for both customers and service providers to manage the event activities on time. 
-Privileged users can generate reports and evaluate the progress of the system.
+For each booking, the new system will generate a schedule for both customers and service providers to manage the event activities on time. Privileged users can generate reports and evaluate the progress of the system.
+
+
 ![Picture1](https://github.com/Induma-nadeeshani/Wedding-Planner/assets/66290152/78971e60-aa87-4a34-ac2f-994e97f26a92)
 ![Picture2](https://github.com/Induma-nadeeshani/Wedding-Planner/assets/66290152/be2198ac-2556-4991-8d45-f432c7cae84a)
