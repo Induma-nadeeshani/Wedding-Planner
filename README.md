@@ -2,6 +2,8 @@ Wedding Planning Management System for Golden Crown Wedding Planners
 
 ![Picture3](https://github.com/Induma-nadeeshani/Wedding-Planner/assets/66290152/efac34db-6d79-4ae9-9c4c-3a7bf0c6127d)
 
+![Group 2](https://github.com/Induma-nadeeshani/Wedding-Planner/assets/66290152/e7ec63fb-5af4-46d6-93cf-35424f49d72e)
+
 
 The proposed system will facilitate User, privilege, and Login detail management.
 The system has facilitated the recording and management of Customer details, Employee details, Vehicle details, Event details, Service details, Service Provider details, Package details, and other details.
